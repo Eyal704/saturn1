@@ -13,12 +13,12 @@
   <meta property="og:type" content="website" />
 
   <!-- Favicon: little ringed planet -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='15' r='8' fill='%23c9536e'/%3E%3Cellipse cx='16' cy='15' rx='14' ry='4.5' fill='none' stroke='%237c1f33' stroke-width='2' transform='rotate(-18 16 15)'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3CradialGradient id='p' cx='0.36' cy='0.3' r='0.8'%3E%3Cstop offset='0' stop-color='%23c76681'/%3E%3Cstop offset='0.5' stop-color='%238c2f48'/%3E%3Cstop offset='1' stop-color='%23551222'/%3E%3C/radialGradient%3E%3ClinearGradient id='r' x1='0' y1='0' x2='1' y2='0.35'%3E%3Cstop offset='0' stop-color='%23a8425c'/%3E%3Cstop offset='0.5' stop-color='%236c1a2e'/%3E%3Cstop offset='1' stop-color='%23a8425c'/%3E%3C/linearGradient%3E%3CclipPath id='c'%3E%3Crect x='0' y='20.5' width='40' height='19.5'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg transform='rotate(-22 20 20)'%3E%3Cellipse cx='20' cy='20' rx='17.5' ry='5.4' fill='none' stroke='url(%23r)' stroke-width='2.4' opacity='0.7'/%3E%3C/g%3E%3Ccircle cx='20' cy='20' r='9.6' fill='url(%23p)'/%3E%3Cellipse cx='16.8' cy='16.4' rx='2.6' ry='1.7' fill='%23fff' opacity='0.2' transform='rotate(-22 16.8 16.4)'/%3E%3Cg clip-path='url(%23c)'%3E%3Cg transform='rotate(-22 20 20)'%3E%3Cellipse cx='20' cy='20' rx='17.5' ry='5.4' fill='none' stroke='url(%23r)' stroke-width='2.4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -38,468 +38,181 @@
     <a class="brand" href="#top" aria-label="Saturn1 home">
       <svg class="brand__glyph" viewBox="0 0 40 40" aria-hidden="true">
         <defs>
-          <radialGradient id="navPlanet" cx="38%" cy="34%" r="75%">
-            <stop offset="0%" stop-color="#ffe6bf" />
-            <stop offset="55%" stop-color="#e29a6a" />
-            <stop offset="100%" stop-color="#9c3f50" />
+          <radialGradient id="navPlanet" cx="36%" cy="30%" r="80%">
+            <stop offset="0%" stop-color="#c76681" />
+            <stop offset="50%" stop-color="#8c2f48" />
+            <stop offset="100%" stop-color="#551222" />
           </radialGradient>
+          <radialGradient id="navHalo" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c9536e" stop-opacity="0.30" />
+            <stop offset="100%" stop-color="#c9536e" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="navRing" x1="0" y1="0" x2="1" y2="0.35">
+            <stop offset="0%" stop-color="#a8425c" />
+            <stop offset="50%" stop-color="#6c1a2e" />
+            <stop offset="100%" stop-color="#a8425c" />
+          </linearGradient>
+          <clipPath id="navRingFront"><rect x="0" y="20.5" width="40" height="19.5" /></clipPath>
         </defs>
-        <circle cx="20" cy="19" r="9.5" fill="url(#navPlanet)" />
-        <ellipse cx="20" cy="19" rx="17" ry="5.4" fill="none" stroke="#7c1f33" stroke-width="2.1" opacity="0.9" transform="rotate(-18 20 19)" />
+        <circle cx="20" cy="20" r="17" fill="url(#navHalo)" />
+        <g transform="rotate(-22 20 20)">
+          <ellipse cx="20" cy="20" rx="17.5" ry="5.4" fill="none" stroke="url(#navRing)" stroke-width="2" opacity="0.68" />
+        </g>
+        <circle cx="20" cy="20" r="9.3" fill="url(#navPlanet)" />
+        <ellipse cx="17" cy="16.5" rx="2.6" ry="1.7" fill="#fff" opacity="0.18" transform="rotate(-22 17 16.5)" />
+        <g clip-path="url(#navRingFront)">
+          <g transform="rotate(-22 20 20)">
+            <ellipse cx="20" cy="20" rx="17.5" ry="5.4" fill="none" stroke="url(#navRing)" stroke-width="2" />
+          </g>
+        </g>
       </svg>
       <span class="brand__word">Saturn<span class="brand__one">1</span></span>
     </a>
 
-    <nav class="nav__links" aria-label="Primary">
-      <a href="#how">How it works</a>
-      <a href="#features">Features</a>
-      <a href="#why">Why Saturn1</a>
-    </nav>
-
     <div class="nav__actions">
       <a class="link-ghost" href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">Sign in</a>
-      <a class="btn btn--primary btn--sm" href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">Book a demo</a>
     </div>
   </header>
 
   <main>
     <!-- ───────────────────────── HERO ───────────────────────── -->
-    <section class="hero">
-      <div class="hero__copy reveal">
-        <span class="eyebrow"><span class="eyebrow__spark">✦</span> AI-native outbound for founders</span>
-        <h1 class="hero__title">
-          Turn what you solve<br />into <em>conversations.</em>
-        </h1>
-        <p class="hero__sub">
-          Saturn1 learns your business, finds the prospects most likely to need you, and turns
-          that context into personalized outreach — so the right people understand what you
-          offer and why it matters to <em>them</em>.
-        </p>
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">
-            Book a demo
-            <svg viewBox="0 0 24 24" class="btn__arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="btn btn--ghost" href="#how">See how it works</a>
-        </div>
-        <ul class="hero__pills" aria-label="What Saturn1 delivers">
-          <li>Right Prospects</li>
-          <li class="dot" aria-hidden="true">✦</li>
-          <li>Relevant Messaging</li>
-          <li class="dot" aria-hidden="true">✦</li>
-          <li>Personalized Outreach</li>
-        </ul>
-      </div>
-
-      <!-- ───── Saturn scene ───── -->
-      <div class="hero__scene reveal" aria-hidden="true">
-        <div class="scene__frame">
-          <!--
-            ░ AI HERO IMAGE SWAP ░
-            The illustrated SVG below is the live default hero. To swap in an
-            AI-generated image, drop a file into saturn1-site/assets/ (e.g.
-            hero.jpg) and uncomment the line below — it covers the SVG:
-
-              <img class="scene__photo" src="assets/hero.jpg" alt="" />
-
-            Prompts to generate one (FLUX / Midjourney / DALL·E):
-            1) "A lone empowered astronaut-explorer piloting a sleek elegant
-               chrome-and-rose spaceship gliding through deep space toward the
-               planet Saturn with luminous golden rings. Cinematic wide shot,
-               soft dusty-rose and warm gold palette, pink nebula clouds, subtle
-               film grain, premium minimal tech-startup aesthetic, confident and
-               aspirational mood, volumetric light, no text, no logos."
-            2) "Heroic three-quarter view of a confident SDR-astronaut in a
-               polished rose-and-chrome exosuit at the controls of a minimalist
-               cockpit, Saturn and its golden rings filling the window, warm gold
-               rim light, dusty-rose ambient glow, cinematic, premium SaaS brand
-               aesthetic, no text."
-          -->
-          <svg class="scene" viewBox="0 0 640 620" role="img" aria-label="A sleek spaceship and an explorer travelling toward the planet Saturn">
+    <section class="hero" id="hero">
+      <div class="hero__media" aria-hidden="true">
+        <div class="hero__stage">
+          <img class="hero__img" src="assets/hero.jpg" alt="" fetchpriority="high" />
+          <svg class="hero__fx" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <defs>
-              <radialGradient id="sceneGlow" cx="64%" cy="34%" r="60%">
-                <stop offset="0%" stop-color="rgba(255,210,170,0.55)" />
-                <stop offset="38%" stop-color="rgba(201,83,110,0.30)" />
-                <stop offset="100%" stop-color="rgba(201,83,110,0)" />
-              </radialGradient>
-              <radialGradient id="planetGrad" cx="36%" cy="30%" r="82%">
-                <stop offset="0%" stop-color="#ffeccb" />
-                <stop offset="34%" stop-color="#f4bd83" />
-                <stop offset="64%" stop-color="#dc8a5c" />
-                <stop offset="88%" stop-color="#b15563" />
-                <stop offset="100%" stop-color="#7c2f44" />
-              </radialGradient>
-              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="rgba(124,31,51,0)" />
-                <stop offset="18%" stop-color="rgba(216,165,103,0.85)" />
-                <stop offset="50%" stop-color="rgba(255,228,191,0.95)" />
-                <stop offset="82%" stop-color="rgba(201,83,110,0.8)" />
-                <stop offset="100%" stop-color="rgba(124,31,51,0)" />
+              <linearGradient id="fxArcGrad" gradientUnits="userSpaceOnUse" x1="445" y1="790" x2="1165" y2="232">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.04"/>
+                <stop offset="0.55" stop-color="#fff" stop-opacity="0.32"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0.82"/>
               </linearGradient>
-              <linearGradient id="shipBody" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ffffff" />
-                <stop offset="42%" stop-color="#f6dde4" />
-                <stop offset="78%" stop-color="#d98aa0" />
-                <stop offset="100%" stop-color="#a83d59" />
-              </linearGradient>
-              <linearGradient id="shipFin" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#7c1f33" />
-                <stop offset="100%" stop-color="#c9536e" />
-              </linearGradient>
-              <linearGradient id="trailGrad" x1="100%" y1="0%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="rgba(255,221,180,0.9)" />
-                <stop offset="40%" stop-color="rgba(201,83,110,0.5)" />
-                <stop offset="100%" stop-color="rgba(201,83,110,0)" />
-              </linearGradient>
-              <radialGradient id="cockpit" cx="50%" cy="40%" r="60%">
-                <stop offset="0%" stop-color="#fff7e6" />
-                <stop offset="60%" stop-color="#ffd79a" />
-                <stop offset="100%" stop-color="#d8895a" />
+              <radialGradient id="fxSatGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.6"/>
+                <stop offset="42%" stop-color="#ffe9d8" stop-opacity="0.26"/>
+                <stop offset="100%" stop-color="#ffd9c2" stop-opacity="0"/>
               </radialGradient>
-              <radialGradient id="flame" cx="20%" cy="50%" r="80%">
-                <stop offset="0%" stop-color="#fff3d6" />
-                <stop offset="45%" stop-color="#ffb27a" />
-                <stop offset="100%" stop-color="rgba(201,83,110,0)" />
+              <radialGradient id="fxAura" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+                <stop offset="40%" stop-color="#ffd6c6" stop-opacity="0.18"/>
+                <stop offset="100%" stop-color="#ffc7d0" stop-opacity="0"/>
               </radialGradient>
-              <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="9" />
-              </filter>
-              <filter id="softer" x="-80%" y="-80%" width="260%" height="260%">
-                <feGaussianBlur stdDeviation="18" />
-              </filter>
-              <clipPath id="ringFront">
-                <rect x="120" y="250" width="640" height="420" />
-              </clipPath>
+              <filter id="fxBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.6"/></filter>
+              <filter id="fxSoft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
+              <clipPath id="fxClip"><circle cx="1224" cy="191" r="30"/></clipPath>
+              <mask id="fxOrbitMask" maskUnits="userSpaceOnUse" x="0" y="0" width="1672" height="941">
+                <rect width="1672" height="941" fill="#fff"/>
+                <g transform="rotate(-21 1224 192)"><rect x="1193" y="163" width="62" height="29" fill="#000"/></g>
+              </mask>
             </defs>
-
-            <!-- big ambient glow -->
-            <circle cx="430" cy="232" r="280" fill="url(#sceneGlow)" />
-
-            <!-- starfield (populated by script.js) -->
-            <g id="stars"></g>
-
-            <!-- Saturn -->
-            <g class="planet-system">
-              <!-- back half of the rings -->
-              <g transform="rotate(-17 430 232)">
-                <ellipse cx="430" cy="232" rx="246" ry="62" fill="none" stroke="url(#ringGrad)" stroke-width="30" opacity="0.55" />
-                <ellipse cx="430" cy="232" rx="204" ry="51" fill="none" stroke="url(#ringGrad)" stroke-width="9" opacity="0.5" />
-              </g>
-
-              <!-- planet glow -->
-              <circle cx="430" cy="232" r="132" fill="#c9536e" opacity="0.35" filter="url(#softer)" />
-              <!-- planet body -->
-              <circle cx="430" cy="232" r="124" fill="url(#planetGrad)" />
-              <!-- subtle bands -->
-              <ellipse cx="430" cy="210" rx="118" ry="14" fill="#ffffff" opacity="0.10" />
-              <ellipse cx="430" cy="252" rx="120" ry="11" fill="#7c1f33" opacity="0.14" />
-              <ellipse cx="430" cy="278" rx="104" ry="9" fill="#7c1f33" opacity="0.10" />
-              <!-- ring shadow cast on planet -->
-              <path d="M312 250 Q430 286 548 250 Q430 268 312 250 Z" fill="#5e1626" opacity="0.18" />
-
-              <!-- front half of the rings -->
-              <g transform="rotate(-17 430 232)" clip-path="url(#ringFront)">
-                <ellipse cx="430" cy="232" rx="246" ry="62" fill="none" stroke="url(#ringGrad)" stroke-width="30" />
-                <ellipse cx="430" cy="232" rx="204" ry="51" fill="none" stroke="url(#ringGrad)" stroke-width="9" opacity="0.85" />
-              </g>
-
-              <!-- moons -->
-              <circle class="moon moon--1" cx="150" cy="150" r="6" fill="#ffe7c4" />
-              <circle class="moon moon--2" cx="612" cy="360" r="4" fill="#f6c89a" />
+            <circle class="fx-halo" cx="1224" cy="191" r="58" fill="url(#fxSatGlow)"/>
+            <g clip-path="url(#fxClip)">
+              <ellipse class="fx-spin" cx="1224" cy="173" rx="13" ry="19" fill="#fff" opacity="0.22" filter="url(#fxSoft)"/>
             </g>
-
-            <!-- Spaceship + explorer, drifting toward Saturn -->
-            <g class="voyager">
-              <!-- engine trail -->
-              <path class="trail" d="M70 470 Q210 452 250 432 L246 452 Q150 478 70 488 Z" fill="url(#trailGrad)" filter="url(#soft)" />
-
-              <!-- explorer (tethered, gazing toward Saturn) -->
-              <g class="explorer" transform="translate(196 372)">
-                <line x1="6" y1="40" x2="58" y2="66" stroke="#ffd79a" stroke-width="1.4" opacity="0.6" />
-                <g class="explorer__body">
-                  <!-- backpack -->
-                  <rect x="-12" y="6" width="12" height="22" rx="4" fill="#7c1f33" />
-                  <!-- torso -->
-                  <rect x="-6" y="4" width="20" height="26" rx="9" fill="url(#shipBody)" />
-                  <!-- helmet -->
-                  <circle cx="6" cy="-2" r="11" fill="#fff" />
-                  <circle cx="6" cy="-2" r="8" fill="#3a1322" />
-                  <ellipse cx="3" cy="-5" rx="3" ry="2" fill="#ffd79a" opacity="0.85" />
-                  <!-- limbs -->
-                  <rect x="-10" y="28" width="7" height="20" rx="3.5" fill="#e0a9b8" transform="rotate(12 -7 28)" />
-                  <rect x="9" y="28" width="7" height="20" rx="3.5" fill="#e0a9b8" transform="rotate(-10 12 28)" />
-                  <rect x="12" y="8" width="16" height="6" rx="3" fill="#e0a9b8" transform="rotate(-22 12 11)" />
-                </g>
-              </g>
-
-              <!-- ship -->
-              <g class="ship" transform="translate(40 430) rotate(-12)">
-                <!-- flames -->
-                <ellipse class="flame" cx="-14" cy="24" rx="34" ry="11" fill="url(#flame)" />
-                <!-- rear fins -->
-                <path d="M24 8 L2 -12 L18 14 Z" fill="url(#shipFin)" />
-                <path d="M24 40 L2 60 L18 34 Z" fill="url(#shipFin)" />
-                <!-- hull -->
-                <path d="M18 4 Q150 -8 196 24 Q150 56 18 44 Q6 24 18 4 Z" fill="url(#shipBody)" />
-                <!-- nose accent -->
-                <path d="M150 6 Q190 12 196 24 Q190 36 150 42 Q176 24 150 6 Z" fill="#fff" opacity="0.55" />
-                <!-- cockpit -->
-                <ellipse cx="92" cy="24" rx="22" ry="13" fill="url(#cockpit)" />
-                <ellipse cx="92" cy="24" rx="22" ry="13" fill="none" stroke="#7c1f33" stroke-width="2" opacity="0.45" />
-                <!-- racing stripe -->
-                <path d="M30 24 Q110 18 188 24" fill="none" stroke="#7c1f33" stroke-width="2.4" opacity="0.4" stroke-linecap="round" />
-              </g>
-            </g>
+            <path class="fx-arc" d="M 445 790 Q 657 449 1165 232" fill="none" stroke="url(#fxArcGrad)" stroke-width="3" stroke-linecap="round" filter="url(#fxBlur)"/>
+            <path class="fx-travel" d="M 445 790 Q 657 449 1165 232" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" filter="url(#fxBlur)"/>
+            <ellipse class="fx-orbit" cx="1224" cy="192" rx="63" ry="19" transform="rotate(-21 1224 192)" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" filter="url(#fxBlur)" mask="url(#fxOrbitMask)"/>
+            <ellipse class="fx-aura" cx="413" cy="812" rx="62" ry="96" fill="url(#fxAura)" filter="url(#fxSoft)"/>
+            <ellipse class="fx-lift" cx="413" cy="894" rx="46" ry="15" fill="url(#fxAura)" filter="url(#fxSoft)"/>
           </svg>
         </div>
+      </div>
+      <div class="hero__veil" aria-hidden="true"></div>
 
-        <!-- floating HUD chips around the scene -->
-        <div class="chip chip--score">
-          <span class="chip__label">ICP fit</span>
-          <span class="chip__value">94<small>/100</small></span>
-        </div>
-        <div class="chip chip--signal">
-          <span class="chip__dot"></span> Hiring 3 AEs · raised Series A
-        </div>
-        <div class="chip chip--draft">
-          <span class="chip__label">Draft ready</span>
-          <span class="chip__bar"><i></i></span>
+      <div class="hero__inner">
+        <div class="hero__copy reveal">
+          <span class="eyebrow"><span class="eyebrow__spark">✦</span> Conversations, not noise</span>
+          <h1 class="hero__title">
+            Saturn1 gets your solution in front of your ICP — with the discipline of a great SDR.
+          </h1>
+          <p class="hero__sub">
+            Enter your website. Saturn1 learns your business, finds your best prospects, researches
+            each one, and sends your email outreach on autopilot — then hands your team everything
+            they need to close the call.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- ───────────────── TRUST MARQUEE ───────────────── -->
-    <section class="marquee" aria-label="What Saturn1 handles">
-      <div class="marquee__track">
-        <span>Prospect discovery</span><span class="sep">✦</span>
-        <span>Buying-signal detection</span><span class="sep">✦</span>
-        <span>ICP fit scoring</span><span class="sep">✦</span>
-        <span>Personalized email</span><span class="sep">✦</span>
-        <span>LinkedIn notes</span><span class="sep">✦</span>
-        <span>Call prep</span><span class="sep">✦</span>
-        <span>Sequenced follow-ups</span><span class="sep">✦</span>
-        <span>30-minute review window</span><span class="sep">✦</span>
-        <!-- duplicate for seamless loop -->
-        <span>Prospect discovery</span><span class="sep">✦</span>
-        <span>Buying-signal detection</span><span class="sep">✦</span>
-        <span>ICP fit scoring</span><span class="sep">✦</span>
-        <span>Personalized email</span><span class="sep">✦</span>
-        <span>LinkedIn notes</span><span class="sep">✦</span>
-        <span>Call prep</span><span class="sep">✦</span>
-        <span>Sequenced follow-ups</span><span class="sep">✦</span>
-        <span>30-minute review window</span><span class="sep">✦</span>
-      </div>
-    </section>
-
-    <!-- ───────────────── AUGMENTED BAND ───────────────── -->
-    <section class="augmented" id="augmented">
-      <div class="augmented__inner">
-        <div class="augmented__copy reveal">
-          <span class="eyebrow eyebrow--light">Not automated. Augmented.</span>
-          <h2 class="section__title section__title--light">
-            Your outbound, with<br /><em>superhuman reach.</em>
-          </h2>
-          <p class="section__lede section__lede--light">
-            Saturn1 doesn't replace the human in the loop — it hands them an exosuit. Every
-            founder gets an operator that never forgets context, never sends a generic email,
-            and never sleeps. You set the mission. Saturn1 does the heavy lifting. You stay in command.
-          </p>
-          <ul class="augmented__chips">
-            <li><span class="tick">▹</span> Context that compounds with every search</li>
-            <li><span class="tick">▹</span> Judgment stays human — you approve every send</li>
-            <li><span class="tick">▹</span> A 30-minute safety window on every message</li>
-          </ul>
-        </div>
-
-        <div class="augmented__visual reveal" aria-hidden="true">
-          <div class="visor">
-            <div class="visor__scan"></div>
-            <div class="visor__reticle">
-              <span class="ring r1"></span>
-              <span class="ring r2"></span>
-              <span class="cross"></span>
-            </div>
-            <div class="visor__readout">
-              <span><b>STATUS</b> ENGAGED</span>
-              <span><b>TARGETS</b> 5 LOCKED</span>
-              <span><b>FIT</b> 91 AVG</span>
-              <span><b>SEND</b> ARMED · 30m</span>
-            </div>
-          </div>
+    <section class="marquee" id="autopilot" aria-label="What Saturn1 does">
+      <div class="marquee__viewport">
+        <div class="marquee__track">
+          <span>Right prospects</span><span class="sep">✦</span>
+          <span>Buying-signal detection</span><span class="sep">✦</span>
+          <span>Per-prospect research</span><span class="sep">✦</span>
+          <span>Sharp messaging</span><span class="sep">✦</span>
+          <span>Personalized outreach</span><span class="sep">✦</span>
+          <span>Autopilot</span><span class="sep">✦</span>
+          <span>Sequenced follow-ups</span><span class="sep">✦</span>
+          <span>LinkedIn openers</span><span class="sep">✦</span>
+          <span>Personalized call prep</span><span class="sep">✦</span>
+          <!-- duplicate for seamless loop -->
+          <span>Right prospects</span><span class="sep">✦</span>
+          <span>Buying-signal detection</span><span class="sep">✦</span>
+          <span>Per-prospect research</span><span class="sep">✦</span>
+          <span>Sharp messaging</span><span class="sep">✦</span>
+          <span>Personalized outreach</span><span class="sep">✦</span>
+          <span>Autopilot</span><span class="sep">✦</span>
+          <span>Sequenced follow-ups</span><span class="sep">✦</span>
+          <span>LinkedIn openers</span><span class="sep">✦</span>
+          <span>Personalized call prep</span><span class="sep">✦</span>
         </div>
       </div>
     </section>
 
-    <!-- ───────────────── HOW IT WORKS ───────────────── -->
-    <section class="how" id="how">
-      <div class="section__head reveal">
-        <span class="eyebrow">How Saturn1 works</span>
-        <h2 class="section__title">From what you solve<br />to who needs it — in three moves.</h2>
-      </div>
-
-      <ol class="steps">
-        <li class="step reveal">
-          <div class="step__num">01</div>
-          <div class="step__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 3l8 4-8 4-8-4 8-4zM4 11l8 4 8-4M4 15l8 4 8-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Learns your business</h3>
-          <p>Point Saturn1 at your site and tell it what you do. It studies your offer, your
-            category, and your ideal customer until it understands your business as well as you do.</p>
-        </li>
-        <li class="step reveal">
-          <div class="step__num">02</div>
-          <div class="step__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 16l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </div>
-          <h3>Finds the right people</h3>
-          <p>It discovers and scores real prospects by role, company, fit, and live buying signals —
-            then hands you a short list worth your time, not a scraped dump.</p>
-        </li>
-        <li class="step reveal">
-          <div class="step__num">03</div>
-          <div class="step__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 5h18v12H7l-4 4V5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 10h10M7 13h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </div>
-          <h3>Personalizes every touch</h3>
-          <p>It turns that context into outreach tuned to each person's world — why you, why them,
-            why now — across email, LinkedIn, and call prep. You approve; it sends.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- ───────────────── FEATURES ───────────────── -->
-    <section class="features" id="features">
-      <div class="section__head reveal">
-        <span class="eyebrow">The system</span>
-        <h2 class="section__title">Everything an outbound team does —<br />running quietly in the background.</h2>
-      </div>
-
-      <div class="grid">
-        <article class="card reveal">
-          <div class="card__icon">◎</div>
-          <h3>ICP Intelligence</h3>
-          <p>Learns your ideal customer from your website and the context you add — and keeps it current.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">✦</div>
-          <h3>Agent Chat</h3>
-          <p>Describe who you want in plain language. Saturn1 goes and finds them.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">⌁</div>
-          <h3>Buying Signals</h3>
-          <p>Detects intent and timing signals so you reach people exactly when it matters.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">◴</div>
-          <h3>Fit Scoring</h3>
-          <p>Every prospect gets a 0–100 ICP-fit score before they ever reach your pipeline.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">✎</div>
-          <h3>Personalized Email</h3>
-          <p>Short, specific, grounded in a real signal — and it always ends with a question.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">◔</div>
-          <h3>30-Minute Review</h3>
-          <p>Nothing sends on autopilot. Every message waits in a review window you control.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">⇶</div>
-          <h3>Sequences</h3>
-          <p>Multi-step follow-ups that advance on their own — and stop the moment someone replies.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">in</div>
-          <h3>LinkedIn &amp; Calls</h3>
-          <p>Auto-drafted connection notes and call prep, so every channel is covered.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">▤</div>
-          <h3>Live Pipeline</h3>
-          <p>A clean board from first touch to meeting booked — always up to date.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ───────────────── WHY / OUTCOME ───────────────── -->
-    <section class="why" id="why">
-      <div class="why__inner reveal">
-        <span class="eyebrow">Why it matters</span>
-        <h2 class="section__title why__title">
-          The right people, finally<br />hearing why it matters to <em>them</em>.
-        </h2>
-        <p class="why__lede">
-          Most outbound is loud and generic. Saturn1 is the opposite — relevant, grounded, and
-          personal. It connects what you solve to the people most likely to need it, in language
-          built for their world. Less noise. More conversations that actually go somewhere.
-        </p>
-        <div class="why__stats">
-          <div class="stat"><span class="stat__num">5</span><span class="stat__label">hand-picked prospects per search</span></div>
-          <div class="stat"><span class="stat__num">0–100</span><span class="stat__label">ICP-fit score on every lead</span></div>
-          <div class="stat"><span class="stat__num">30<small>min</small></span><span class="stat__label">review window before any send</span></div>
-          <div class="stat"><span class="stat__num">∞</span><span class="stat__label">follow-ups that never get forgotten</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ───────────────── FINAL CTA ───────────────── -->
-    <section class="cta">
-      <div class="cta__inner reveal">
-        <div class="cta__planet" aria-hidden="true"></div>
-        <h2 class="cta__title">Ready for liftoff?</h2>
-        <p class="cta__sub">
-          Set your outbound in motion. Saturn1 finds the right people and starts the
-          conversation — you take the meetings.
-        </p>
-        <a class="btn btn--primary btn--lg" href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">
-          Book a demo
-          <svg viewBox="0 0 24 24" class="btn__arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <p class="cta__tagline">Right Prospects · Relevant Messaging · Personalized Outreach</p>
-      </div>
-    </section>
   </main>
 
   <!-- ───────────────────────── FOOTER ───────────────────────── -->
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__brand">
-        <a class="brand" href="#top" aria-label="Saturn1 home">
-          <svg class="brand__glyph" viewBox="0 0 40 40" aria-hidden="true">
-            <circle cx="20" cy="19" r="9.5" fill="url(#navPlanet)" />
-            <ellipse cx="20" cy="19" rx="17" ry="5.4" fill="none" stroke="#c9536e" stroke-width="2.1" opacity="0.9" transform="rotate(-18 20 19)" />
-          </svg>
-          <span class="brand__word">Saturn<span class="brand__one">1</span></span>
-        </a>
-        <p class="footer__tag">Right Prospects · Relevant Messaging · Personalized Outreach</p>
-      </div>
-      <nav class="footer__cols" aria-label="Footer">
-        <div class="footer__col">
-          <h4>Product</h4>
-          <a href="#how">How it works</a>
-          <a href="#features">Features</a>
-          <a href="#why">Why Saturn1</a>
-        </div>
-        <div class="footer__col">
-          <h4>Get started</h4>
-          <a href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">Sign in</a>
-          <a href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">Book a demo</a>
-        </div>
-        <div class="footer__col">
-          <h4>Legal</h4>
-          <a href="https://www.meeting-scheduled.com/privacy" target="_blank" rel="noopener">Privacy</a>
-          <a href="https://www.meeting-scheduled.com/terms.html" target="_blank" rel="noopener">Terms</a>
-        </div>
+      <a class="brand" href="#top" aria-label="Saturn1 home">
+        <svg class="brand__glyph" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="19" r="9.5" fill="url(#navPlanet)" />
+          <ellipse cx="20" cy="19" rx="17" ry="5.4" fill="none" stroke="#c9536e" stroke-width="2.1" opacity="0.9" transform="rotate(-18 20 19)" />
+        </svg>
+        <span class="brand__word">Saturn<span class="brand__one">1</span></span>
+      </a>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">Sign in</a>
+        <a href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">Book a demo</a>
+        <a href="https://www.meeting-scheduled.com/privacy" target="_blank" rel="noopener">Privacy</a>
+        <a href="https://www.meeting-scheduled.com/terms.html" target="_blank" rel="noopener">Terms</a>
       </nav>
     </div>
-    <div class="footer__base">
-      <span>© 2026 Saturn1</span>
-      <span class="footer__made">Right people · Relevant message · Real conversations</span>
-    </div>
   </footer>
+
+  <!-- Crisp chat (same inbox as meeting-scheduled); launcher hidden, opened from the widget's Chat button -->
+  <script>window.$crisp=[];window.CRISP_WEBSITE_ID="345c5509-5794-4f9b-9fca-729075f9eea3";(function(){var d=document,c=d.createElement("script");c.src="https://client.crisp.chat/l.js";c.async=1;d.getElementsByTagName("head")[0].appendChild(c);})();window.$crisp.push(["do","chat:hide"]);window.$crisp.push(["on","chat:closed",function(){window.$crisp.push(["do","chat:hide"]);}]);</script>
+
+  <!-- ───────── live video contact widget ───────── -->
+  <div class="cw" id="cw">
+    <button class="cw__bubble" id="cwBubble" type="button" aria-label="Talk to Saturn1">
+      <video class="cw__video" data-src="assets/agent.mp4" muted loop playsinline preload="none"></video>
+      <span class="cw__grad"></span>
+      <span class="cw__btext"><span class="cw__t1">Chat now</span><span class="cw__t2">Helpful human here</span></span>
+      <span class="cw__dot"></span>
+    </button>
+    <div class="cw__card" id="cwCard" hidden>
+      <button class="cw__close" id="cwClose" type="button" aria-label="Close">&times;</button>
+      <video class="cw__cvideo" data-src="assets/agent.mp4" muted loop playsinline preload="none"></video>
+      <span class="cw__badge"><i></i> We are online</span>
+      <div class="cw__body">
+        <p class="cw__hi">Hi 👋 I'm a <strong>helpful human</strong> @ Saturn1</p>
+        <p class="cw__sub">I'm happy to have a live call right now or just chat me</p>
+        <div class="cw__actions">
+          <a class="cw__btn cw__btn--call" href="https://wa.me/972538276288?text=Hi%20Saturn1%20%3A%29" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call me
+          </a>
+          <button class="cw__btn cw__btn--chat" id="cwChat" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Chat
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

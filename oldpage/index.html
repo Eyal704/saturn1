@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Saturn1 — Right Prospects. Relevant Messaging. Personalized Outreach.</title>
+  <meta name="description" content="Saturn1 helps founders turn what they solve into conversations with the right people — by learning your business, finding relevant prospects, and turning that context into personalized outbound." />
+  <meta name="theme-color" content="#fdf2f4" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Saturn1 — Outbound that reaches the right people" />
+  <meta property="og:description" content="Saturn1 learns your business, finds the prospects most likely to need you, and turns that context into personalized outreach." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon: little ringed planet -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='15' r='8' fill='%23c9536e'/%3E%3Cellipse cx='16' cy='15' rx='14' ry='4.5' fill='none' stroke='%237c1f33' stroke-width='2' transform='rotate(-18 16 15)'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- film grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ambient nebula glows -->
+  <div class="ambient" aria-hidden="true">
+    <span class="orb orb--rose"></span>
+    <span class="orb orb--gold"></span>
+    <span class="orb orb--wine"></span>
+  </div>
+
+  <!-- ───────────────────────── NAV ───────────────────────── -->
+  <header class="nav" id="top">
+    <a class="brand" href="#top" aria-label="Saturn1 home">
+      <svg class="brand__glyph" viewBox="0 0 40 40" aria-hidden="true">
+        <defs>
+          <radialGradient id="navPlanet" cx="36%" cy="30%" r="80%">
+            <stop offset="0%" stop-color="#c76681" />
+            <stop offset="50%" stop-color="#8c2f48" />
+            <stop offset="100%" stop-color="#551222" />
+          </radialGradient>
+          <radialGradient id="navHalo" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c9536e" stop-opacity="0.30" />
+            <stop offset="100%" stop-color="#c9536e" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="navRing" x1="0" y1="0" x2="1" y2="0.35">
+            <stop offset="0%" stop-color="#a8425c" />
+            <stop offset="50%" stop-color="#6c1a2e" />
+            <stop offset="100%" stop-color="#a8425c" />
+          </linearGradient>
+          <clipPath id="navRingFront"><rect x="0" y="20.5" width="40" height="19.5" /></clipPath>
+        </defs>
+        <circle cx="20" cy="20" r="17" fill="url(#navHalo)" />
+        <g transform="rotate(-22 20 20)">
+          <ellipse cx="20" cy="20" rx="17.5" ry="5.4" fill="none" stroke="url(#navRing)" stroke-width="2" opacity="0.68" />
+        </g>
+        <circle cx="20" cy="20" r="9.3" fill="url(#navPlanet)" />
+        <ellipse cx="17" cy="16.5" rx="2.6" ry="1.7" fill="#fff" opacity="0.18" transform="rotate(-22 17 16.5)" />
+        <g clip-path="url(#navRingFront)">
+          <g transform="rotate(-22 20 20)">
+            <ellipse cx="20" cy="20" rx="17.5" ry="5.4" fill="none" stroke="url(#navRing)" stroke-width="2" />
+          </g>
+        </g>
+      </svg>
+      <span class="brand__word">Saturn<span class="brand__one">1</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#why">Why it's different</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="link-ghost" href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">Sign in</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ───────────────────────── HERO ───────────────────────── -->
+    <section class="hero" id="hero">
+      <div class="hero__media" aria-hidden="true">
+        <div class="hero__stage">
+          <img class="hero__img" src="assets/hero.jpg" alt="" fetchpriority="high" />
+          <svg class="hero__fx" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="fxArcGrad" gradientUnits="userSpaceOnUse" x1="445" y1="790" x2="1165" y2="232">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.04"/>
+                <stop offset="0.55" stop-color="#fff" stop-opacity="0.32"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0.82"/>
+              </linearGradient>
+              <radialGradient id="fxSatGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.6"/>
+                <stop offset="42%" stop-color="#ffe9d8" stop-opacity="0.26"/>
+                <stop offset="100%" stop-color="#ffd9c2" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="fxBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.6"/></filter>
+              <filter id="fxSoft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
+              <clipPath id="fxClip"><circle cx="1224" cy="191" r="30"/></clipPath>
+            </defs>
+            <circle class="fx-halo" cx="1224" cy="191" r="58" fill="url(#fxSatGlow)"/>
+            <g clip-path="url(#fxClip)">
+              <ellipse class="fx-spin" cx="1224" cy="173" rx="13" ry="19" fill="#fff" opacity="0.22" filter="url(#fxSoft)"/>
+            </g>
+            <path class="fx-arc" d="M 445 790 Q 657 449 1165 232" fill="none" stroke="url(#fxArcGrad)" stroke-width="3" stroke-linecap="round" filter="url(#fxBlur)"/>
+            <path class="fx-travel" d="M 445 790 Q 657 449 1165 232" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" filter="url(#fxBlur)"/>
+          </svg>
+        </div>
+      </div>
+      <div class="hero__veil" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__copy reveal">
+          <span class="eyebrow"><span class="eyebrow__spark">✦</span> Conversations, not noise</span>
+          <h1 class="hero__title">
+            Saturn1 gets your solution in front of your ICP — <em>with the discipline of a great SDR.</em>
+          </h1>
+          <p class="hero__sub">
+            Enter your website. Saturn1 learns your business, finds your best prospects, researches
+            each one, and sends your email outreach on autopilot — then hands your team everything
+            they need to close the call.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">
+              Book a demo
+              <svg viewBox="0 0 24 24" class="btn__arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#how">See how it works</a>
+          </div>
+          <ul class="hero__pills" aria-label="What Saturn1 delivers">
+            <li>Right Prospects</li>
+            <li class="dot" aria-hidden="true">✦</li>
+            <li>Relevant Messaging</li>
+            <li class="dot" aria-hidden="true">✦</li>
+            <li>Personalized Outreach</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────── TRUST MARQUEE ───────────────── -->
+    <section class="marquee" aria-label="What Saturn1 handles">
+      <div class="marquee__track">
+        <span class="marquee__lead">Autopilot:</span>
+        <span>Prospect discovery</span><span class="sep">✦</span>
+        <span>Buying-signal detection</span><span class="sep">✦</span>
+        <span>ICP fit scoring</span><span class="sep">✦</span>
+        <span>Per-prospect research</span><span class="sep">✦</span>
+        <span>Personalized email</span><span class="sep">✦</span>
+        <span>Sequenced follow-ups</span><span class="sep">✦</span>
+        <span>LinkedIn openers</span><span class="sep">✦</span>
+        <span>Call prep</span><span class="sep">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span class="marquee__lead">Autopilot:</span>
+        <span>Prospect discovery</span><span class="sep">✦</span>
+        <span>Buying-signal detection</span><span class="sep">✦</span>
+        <span>ICP fit scoring</span><span class="sep">✦</span>
+        <span>Per-prospect research</span><span class="sep">✦</span>
+        <span>Personalized email</span><span class="sep">✦</span>
+        <span>Sequenced follow-ups</span><span class="sep">✦</span>
+        <span>LinkedIn openers</span><span class="sep">✦</span>
+        <span>Call prep</span><span class="sep">✦</span>
+      </div>
+    </section>
+
+    <!-- ───────────────── AUGMENTED BAND ───────────────── -->
+    <section class="augmented" id="augmented">
+      <div class="augmented__inner">
+        <div class="augmented__copy reveal">
+          <span class="eyebrow eyebrow--light">Not automated. Augmented.</span>
+          <h2 class="section__title section__title--light">
+            Your outbound, with<br /><em>superhuman reach.</em>
+          </h2>
+          <p class="section__lede section__lede--light">
+            Saturn1 doesn't replace the human in the loop — it hands them an exosuit. Every
+            founder gets an operator that never forgets context, never sends a generic email,
+            and never sleeps. You set the mission. Saturn1 does the heavy lifting. You stay in command.
+          </p>
+          <ul class="augmented__chips">
+            <li><span class="tick">▹</span> Context that compounds with every search</li>
+            <li><span class="tick">▹</span> Judgment stays human — you approve every send</li>
+            <li><span class="tick">▹</span> A 30-minute safety window on every message</li>
+          </ul>
+        </div>
+
+        <div class="augmented__visual reveal" aria-hidden="true">
+          <div class="visor">
+            <div class="visor__scan"></div>
+            <div class="visor__reticle">
+              <span class="ring r1"></span>
+              <span class="ring r2"></span>
+              <span class="cross"></span>
+            </div>
+            <div class="visor__readout">
+              <span><b>STATUS</b> ENGAGED</span>
+              <span><b>TARGETS</b> 5 LOCKED</span>
+              <span><b>FIT</b> 91 AVG</span>
+              <span><b>SEND</b> ARMED · 30m</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────── HOW IT WORKS ───────────────── -->
+    <section class="how" id="how">
+      <div class="section__head reveal">
+        <span class="eyebrow">How Saturn1 works</span>
+        <h2 class="section__title">From what you solve<br />to who needs it — in three moves.</h2>
+      </div>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <div class="step__num">01</div>
+          <div class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l8 4-8 4-8-4 8-4zM4 11l8 4 8-4M4 15l8 4 8-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Learns your business</h3>
+          <p>Point Saturn1 at your site and tell it what you do. It studies your offer, your
+            category, and your ideal customer until it understands your business as well as you do.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step__num">02</div>
+          <div class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 16l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Finds the right people</h3>
+          <p>It discovers and scores real prospects by role, company, fit, and live buying signals —
+            then hands you a short list worth your time, not a scraped dump.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step__num">03</div>
+          <div class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 5h18v12H7l-4 4V5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 10h10M7 13h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Personalizes every touch</h3>
+          <p>It turns that context into outreach tuned to each person's world — why you, why them,
+            why now — across email, LinkedIn, and call prep. You approve; it sends.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ───────────────── FEATURES ───────────────── -->
+    <section class="features" id="features">
+      <div class="section__head reveal">
+        <span class="eyebrow">The system</span>
+        <h2 class="section__title">Everything an outbound team does —<br />running quietly in the background.</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card reveal">
+          <div class="card__icon">◎</div>
+          <h3>ICP Intelligence</h3>
+          <p>Learns your ideal customer from your website and the context you add — and keeps it current.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">✦</div>
+          <h3>Agent Chat</h3>
+          <p>Describe who you want in plain language. Saturn1 goes and finds them.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">⌁</div>
+          <h3>Buying Signals</h3>
+          <p>Detects intent and timing signals so you reach people exactly when it matters.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">◴</div>
+          <h3>Fit Scoring</h3>
+          <p>Every prospect gets a 0–100 ICP-fit score before they ever reach your pipeline.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">✎</div>
+          <h3>Personalized Email</h3>
+          <p>Short, specific, grounded in a real signal — and it always ends with a question.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">◔</div>
+          <h3>30-Minute Review</h3>
+          <p>Nothing sends on autopilot. Every message waits in a review window you control.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">⇶</div>
+          <h3>Sequences</h3>
+          <p>Multi-step follow-ups that advance on their own — and stop the moment someone replies.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">in</div>
+          <h3>LinkedIn &amp; Calls</h3>
+          <p>Auto-drafted connection notes and call prep, so every channel is covered.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">▤</div>
+          <h3>Live Pipeline</h3>
+          <p>A clean board from first touch to meeting booked — always up to date.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────────────── WHY / OUTCOME ───────────────── -->
+    <section class="why" id="why">
+      <div class="why__inner reveal">
+        <span class="eyebrow">Why it matters</span>
+        <h2 class="section__title why__title">
+          The right people, finally<br />hearing why it matters to <em>them</em>.
+        </h2>
+        <p class="why__lede">
+          Most outbound is loud and generic. Saturn1 is the opposite — relevant, grounded, and
+          personal. It connects what you solve to the people most likely to need it, in language
+          built for their world. Less noise. More conversations that actually go somewhere.
+        </p>
+        <div class="why__stats">
+          <div class="stat"><span class="stat__num">5</span><span class="stat__label">hand-picked prospects per search</span></div>
+          <div class="stat"><span class="stat__num">0–100</span><span class="stat__label">ICP-fit score on every lead</span></div>
+          <div class="stat"><span class="stat__num">30<small>min</small></span><span class="stat__label">review window before any send</span></div>
+          <div class="stat"><span class="stat__num">∞</span><span class="stat__label">follow-ups that never get forgotten</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────── FINAL CTA ───────────────── -->
+    <section class="cta">
+      <div class="cta__inner reveal">
+        <div class="cta__planet" aria-hidden="true"></div>
+        <h2 class="cta__title">Ready for liftoff?</h2>
+        <p class="cta__sub">
+          Set your outbound in motion. Saturn1 finds the right people and starts the
+          conversation — you take the meetings.
+        </p>
+        <a class="btn btn--primary btn--lg" href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">
+          Book a demo
+          <svg viewBox="0 0 24 24" class="btn__arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="cta__tagline">Right Prospects · Relevant Messaging · Personalized Outreach</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───────────────────────── FOOTER ───────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="brand" href="#top" aria-label="Saturn1 home">
+          <svg class="brand__glyph" viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="19" r="9.5" fill="url(#navPlanet)" />
+            <ellipse cx="20" cy="19" rx="17" ry="5.4" fill="none" stroke="#c9536e" stroke-width="2.1" opacity="0.9" transform="rotate(-18 20 19)" />
+          </svg>
+          <span class="brand__word">Saturn<span class="brand__one">1</span></span>
+        </a>
+        <p class="footer__tag">Right Prospects · Relevant Messaging · Personalized Outreach</p>
+      </div>
+      <nav class="footer__cols" aria-label="Footer">
+        <div class="footer__col">
+          <h4>Product</h4>
+          <a href="#how">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#why">Why Saturn1</a>
+        </div>
+        <div class="footer__col">
+          <h4>Get started</h4>
+          <a href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">Sign in</a>
+          <a href="https://reach.meeting-scheduled.com" target="_blank" rel="noopener">Book a demo</a>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <a href="https://www.meeting-scheduled.com/privacy" target="_blank" rel="noopener">Privacy</a>
+          <a href="https://www.meeting-scheduled.com/terms.html" target="_blank" rel="noopener">Terms</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Saturn1</span>
+      <span class="footer__made">Right people · Relevant message · Real conversations</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
