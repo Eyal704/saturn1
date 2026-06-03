@@ -385,6 +385,8 @@ main, .nav, .footer { position: relative; z-index: 2; }
 .cw { position: fixed; right: 22px; bottom: 22px; z-index: 70; touch-action: none; }
 .cw__bubble { position: relative; display: block; width: 118px; height: 152px; padding: 0; border: 0; border-radius: 20px; overflow: hidden; cursor: pointer; touch-action: none; background: #0c0c0c; box-shadow: 0 16px 38px -12px rgba(0,0,0,0.55); transition: transform .25s var(--ease), box-shadow .25s var(--ease); }
 .cw__bubble:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 22px 48px -12px rgba(0,0,0,0.6); }
+.cw__bubble:focus { outline: none; }
+.cw__bubble:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
 .cw__video { position: absolute; top: 5px; left: 5px; width: calc(100% - 10px); height: calc(100% - 10px); border-radius: 15px; object-fit: cover; display: block; }
 .cw__grad { position: absolute; top: 5px; left: 5px; width: calc(100% - 10px); height: calc(100% - 10px); border-radius: 15px; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.72) 100%); pointer-events: none; }
 .cw__btext { position: absolute; left: 6px; right: 6px; bottom: 13px; text-align: center; color: #fff; font-family: var(--font-sans); font-size: 0.82rem; font-weight: 600; line-height: 1.2; }

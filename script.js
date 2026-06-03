@@ -113,13 +113,12 @@
     var r = cw.getBoundingClientRect();
     ox = r.left; oy = r.top; sx = e.clientX; sy = e.clientY;
     down = true; moved = false; cw.dataset.drag = '0'; pid = e.pointerId;
-    try { cw.setPointerCapture(pid); } catch (e2) {}
   });
   cw.addEventListener('pointermove', function (e) {
     if (!down) return;
     var dx = e.clientX - sx, dy = e.clientY - sy;
     if (!moved && Math.abs(dx) + Math.abs(dy) < 5) return;
-    if (!moved) { moved = true; cw.classList.add('cw--drag'); }
+    if (!moved) { moved = true; cw.classList.add('cw--drag'); try { cw.setPointerCapture(pid); } catch (e2) {} }
     place(ox + dx, oy + dy); e.preventDefault();
   });
   function endDrag() {
