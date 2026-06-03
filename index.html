@@ -100,17 +100,18 @@
               <filter id="fxBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.6"/></filter>
               <filter id="fxSoft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6"/></filter>
               <clipPath id="fxClip"><circle cx="1221" cy="200" r="30"/></clipPath>
-              <mask id="fxOrbitMask" maskUnits="userSpaceOnUse" x="0" y="0" width="1672" height="941">
+              <mask id="fxRingOcclude" maskUnits="userSpaceOnUse" x="0" y="0" width="1672" height="941">
                 <rect width="1672" height="941" fill="#fff"/>
-                <g transform="rotate(-21 1224 192)"><rect x="1193" y="163" width="62" height="29" fill="#000"/></g>
+                <circle cx="1221" cy="200" r="40" fill="#000"/>
+                <g transform="rotate(-27 1221 200)"><rect x="1141" y="200" width="160" height="90" fill="#fff"/></g>
               </mask>
             </defs>
             <circle class="fx-halo" cx="1221" cy="200" r="58" fill="url(#fxSatGlow)"/>
             <g clip-path="url(#fxClip)">
               <ellipse class="fx-spin" cx="1221" cy="182" rx="13" ry="19" fill="#fff" opacity="0.22" filter="url(#fxSoft)"/>
             </g>
-            <path class="fx-arc" d="M 450 770 Q 790 361 1162 230" fill="none" stroke="url(#fxArcGrad)" stroke-width="3" stroke-linecap="round" filter="url(#fxBlur)"/>
-            <path class="fx-travel" d="M 450 770 Q 790 361 1162 230 A 66 19 -27 0 1 1280 170 A 66 19 -27 0 1 1162 230" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" filter="url(#fxBlur)"/>
+            <path class="fx-arc" mask="url(#fxRingOcclude)" d="M 450 770 Q 790 361 1162 230" fill="none" stroke="url(#fxArcGrad)" stroke-width="3" stroke-linecap="round" filter="url(#fxBlur)"/>
+            <path class="fx-travel" mask="url(#fxRingOcclude)" d="M 450 770 Q 790 361 1162 230 A 66 19 -27 0 1 1280 170 A 66 19 -27 0 1 1162 230" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" filter="url(#fxBlur)"/>
             <ellipse class="fx-aura" cx="413" cy="812" rx="62" ry="96" fill="url(#fxAura)" filter="url(#fxSoft)"/>
             <ellipse class="fx-lift" cx="413" cy="894" rx="46" ry="15" fill="url(#fxAura)" filter="url(#fxSoft)"/>
           </svg>
