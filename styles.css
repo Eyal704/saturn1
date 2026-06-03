@@ -147,7 +147,7 @@ main, .nav, .footer { position: relative; z-index: 2; }
 /* ═══════════════ HERO ═══════════════ */
 .hero {
   position: relative;
-  min-height: clamp(640px, 92vh, 960px);
+  aspect-ratio: 1672 / 941; min-height: 640px;
   display: flex; align-items: center;
   overflow: hidden; isolation: isolate;
 }
@@ -167,8 +167,8 @@ main, .nav, .footer { position: relative; z-index: 2; }
 .hero__fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
 .fx-arc { animation: fxArcPulse 5.5s ease-in-out infinite; }
 @keyframes fxArcPulse { 0%,100% { opacity: 0.5; } 50% { opacity: 0.9; } }
-.fx-travel { stroke-dasharray: 180 912; stroke-dashoffset: 1092; animation: fxTravel 0.95s linear infinite; }
-@keyframes fxTravel { from { stroke-dashoffset: 1092; } to { stroke-dashoffset: 0; } }
+.fx-travel { stroke-dasharray: 200 1193; stroke-dashoffset: 1393; animation: fxTravel 1.5s linear infinite; }
+@keyframes fxTravel { from { stroke-dashoffset: 1393; } to { stroke-dashoffset: 0; } }
 .fx-halo { transform-box: view-box; transform-origin: 1224px 191px; animation: fxHalo 6s ease-in-out infinite; }
 @keyframes fxHalo { 0%,100% { opacity: 0.45; transform: scale(0.9); } 50% { opacity: 0.95; transform: scale(1.1); } }
 .fx-spin { transform-box: view-box; transform-origin: 1224px 191px; animation: fxSpin 17s linear infinite; }
