@@ -147,6 +147,7 @@ main, .nav, .footer { position: relative; z-index: 2; }
 /* ═══════════════ HERO ═══════════════ */
 .hero {
   position: relative;
+  width: 100%;
   aspect-ratio: 1672 / 941; min-height: 640px;
   display: flex; align-items: center;
   overflow: hidden; isolation: isolate;
@@ -363,6 +364,11 @@ main, .nav, .footer { position: relative; z-index: 2; }
 @media (max-width: 760px) {
   .nav__links { display: none; }
   .why__stats { grid-template-columns: repeat(2, 1fr); }
+  /* mobile hero: portrait-friendly, frame the figure, drop the misaligned fx overlay */
+  .hero { align-items: flex-start; min-height: 90svh; }
+  .hero__inner { padding-top: 48px; }
+  .hero__img { object-position: 30% 100%; }
+  .hero__fx { display: none; }
 }
 @media (max-width: 480px) {
   .nav__actions .link-ghost { display: none; }
