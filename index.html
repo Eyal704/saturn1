@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260610-1" />
 </head>
 <body>
   <!-- film grain overlay -->
@@ -79,7 +79,10 @@
     <section class="hero" id="hero">
       <div class="hero__media" aria-hidden="true">
         <div class="hero__stage">
-          <img class="hero__img" src="assets/hero.jpg" alt="" fetchpriority="high" />
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/hero-mobile.jpg" />
+            <img class="hero__img" src="assets/hero.jpg" alt="" fetchpriority="high" />
+          </picture>
           <svg class="hero__fx" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
             <defs>
               <linearGradient id="fxArcGrad" gradientUnits="userSpaceOnUse" x1="450" y1="770" x2="1162" y2="230">
@@ -123,12 +126,126 @@
         <div class="hero__copy reveal">
           <span class="eyebrow"><span class="eyebrow__spark">✦</span> Conversations, not noise</span>
           <h1 class="hero__title">
-            Saturn1 gets your solution in front of your ICP — with the discipline of a great SDR.
+            Saturn1 builds your sales development engine around what you sell.
           </h1>
           <p class="hero__sub">
-            Enter your website. Saturn1 learns your business, finds your best prospects, researches
-            each one, and sends your email outreach on autopilot — then arms your team with LinkedIn openers and call prep.
+            Enter your website. Saturn1 learns what you sell, finds the right prospects,
+            researches each one, and runs outbound that uses the right angle, proof, and case study for every conversation.
           </p>
+          <div class="hero__demo">
+            <div class="hero__video" aria-label="Saturn1 product video">
+              <iframe
+                src="https://player.vimeo.com/video/1199909588?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                title="Saturn1 product video"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <a class="hero__start" href="https://cal.com/meeting-scheduled/30-min-meeting" target="_blank" rel="noopener">
+              Start today
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── InteractiveProductStory ───────────── -->
+    <section class="product-story" id="product-story" aria-labelledby="product-story-title" hidden>
+      <div class="product-story__inner">
+        <div class="section__head product-story__head reveal">
+          <span class="eyebrow"><span class="eyebrow__spark">✦</span> Product story</span>
+          <h2 class="section__title" id="product-story-title">
+            From website to pipeline motion.
+          </h2>
+          <p class="section__lede">
+            Saturn1 turns your public positioning into focused prospecting, research, outreach, and meeting prep.
+          </p>
+        </div>
+
+        <div class="product-story__grid reveal">
+          <div class="product-story__steps" role="tablist" aria-label="Saturn1 product story">
+            <button class="story-step is-active" id="story-step-0" type="button" role="tab" aria-selected="true" aria-controls="story-panel" data-story-step="0">
+              <span class="story-step__num">01</span>
+              <span class="story-step__copy">
+                <strong>Learns your business</strong>
+                <span>Offer, proof, use cases.</span>
+              </span>
+            </button>
+            <button class="story-step" id="story-step-1" type="button" role="tab" aria-selected="false" aria-controls="story-panel" data-story-step="1">
+              <span class="story-step__num">02</span>
+              <span class="story-step__copy">
+                <strong>Finds ICP-fit prospects</strong>
+                <span>Accounts with a reason to care.</span>
+              </span>
+            </button>
+            <button class="story-step" id="story-step-2" type="button" role="tab" aria-selected="false" aria-controls="story-panel" data-story-step="2">
+              <span class="story-step__num">03</span>
+              <span class="story-step__copy">
+                <strong>Researches what matters</strong>
+                <span>Signals, context, timing.</span>
+              </span>
+            </button>
+            <button class="story-step" id="story-step-3" type="button" role="tab" aria-selected="false" aria-controls="story-panel" data-story-step="3">
+              <span class="story-step__num">04</span>
+              <span class="story-step__copy">
+                <strong>Builds the right outreach</strong>
+                <span>Angle, proof, case study.</span>
+              </span>
+            </button>
+            <button class="story-step" id="story-step-4" type="button" role="tab" aria-selected="false" aria-controls="story-panel" data-story-step="4">
+              <span class="story-step__num">05</span>
+              <span class="story-step__copy">
+                <strong>Arms your team for meetings</strong>
+                <span>Openers and call prep.</span>
+              </span>
+            </button>
+          </div>
+
+          <div class="story-screen" id="story-panel" role="tabpanel" aria-labelledby="story-step-0" aria-live="polite" data-story-screen>
+            <div class="story-screen__chrome" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="story-screen__status">
+              <span data-story-kicker>Step 01</span>
+              <strong data-story-status>Website learned</strong>
+            </div>
+            <div class="story-screen__body">
+              <p class="story-screen__label" data-story-label>Input</p>
+              <h3 data-story-title>Learns your business</h3>
+              <p data-story-copy>
+                Maps your offer, proof, ICP, and strongest use cases from your website.
+              </p>
+
+              <div class="story-chips" aria-label="Current signals">
+                <span data-story-chip>Offer map</span>
+                <span data-story-chip>ICP language</span>
+                <span data-story-chip>Proof library</span>
+              </div>
+
+              <div class="story-output">
+                <div>
+                  <span>Next asset</span>
+                  <strong data-story-output>Positioning brief</strong>
+                </div>
+                <div>
+                  <span>Quality bar</span>
+                  <strong data-story-quality>Clear fit logic</strong>
+                </div>
+              </div>
+            </div>
+            <div class="story-map" aria-hidden="true">
+              <span class="story-map__node story-map__node--a"></span>
+              <span class="story-map__node story-map__node--b"></span>
+              <span class="story-map__node story-map__node--c"></span>
+              <span class="story-map__node story-map__node--d"></span>
+              <svg viewBox="0 0 360 180" preserveAspectRatio="none">
+                <path d="M36 132 C96 42 150 78 184 96 C236 124 266 52 326 42" />
+                <path d="M38 134 C108 130 148 112 188 96 C230 78 282 96 324 44" />
+              </svg>
+            </div>
+            <div class="story-progress" aria-hidden="true"><span data-story-progress></span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -185,6 +302,7 @@
 
   <!-- ───────── live video contact widget ───────── -->
   <div class="cw" id="cw">
+    <button class="cw__dismiss" id="cwDismiss" type="button" aria-label="Hide chat widget">&times;</button>
     <button class="cw__bubble" id="cwBubble" type="button" aria-label="Talk to Saturn1">
       <video class="cw__video" data-src="assets/agent.mp4" muted loop playsinline preload="none"></video>
       <span class="cw__grad"></span>
@@ -212,6 +330,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260610-1"></script>
 </body>
 </html>

@@ -59,6 +59,123 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
+  /* ── InteractiveProductStory: static marketing preview, no live data ── */
+  var storyScreen = document.querySelector('[data-story-screen]');
+  var storyButtons = Array.prototype.slice.call(document.querySelectorAll('[data-story-step]'));
+  if (storyScreen && storyButtons.length) {
+    var storyItems = [
+      {
+        kicker: 'Step 01',
+        status: 'Website learned',
+        label: 'Input',
+        title: 'Learns your business',
+        copy: 'Maps your offer, proof, ICP, and strongest use cases from your website.',
+        chips: ['Offer map', 'ICP language', 'Proof library'],
+        output: 'Positioning brief',
+        quality: 'Clear fit logic'
+      },
+      {
+        kicker: 'Step 02',
+        status: 'Prospects scored',
+        label: 'Prospecting',
+        title: 'Finds ICP-fit prospects',
+        copy: 'Prioritizes accounts with the strongest match between their needs and your solution.',
+        chips: ['Firmographic fit', 'Pain match', 'Trigger signals'],
+        output: 'Ranked account list',
+        quality: 'Reason to reach out'
+      },
+      {
+        kicker: 'Step 03',
+        status: 'Context gathered',
+        label: 'Research',
+        title: 'Researches what matters',
+        copy: 'Distills the signals that make each conversation specific, timely, and worth taking.',
+        chips: ['Current signals', 'Stakeholder context', 'Timing notes'],
+        output: 'Prospect brief',
+        quality: 'Relevant opener'
+      },
+      {
+        kicker: 'Step 04',
+        status: 'Message ready',
+        label: 'Outreach',
+        title: 'Builds the right outreach',
+        copy: 'Matches each prospect to the angle, proof, and case study most likely to earn a reply.',
+        chips: ['Sharp angle', 'Proof point', 'Case study'],
+        output: 'Personalized sequence',
+        quality: 'No generic fluff'
+      },
+      {
+        kicker: 'Step 05',
+        status: 'Team briefed',
+        label: 'Meetings',
+        title: 'Arms your team for meetings',
+        copy: 'Turns research into openers, objections, and call prep your team can use immediately.',
+        chips: ['Call opener', 'Likely objections', 'Smart questions'],
+        output: 'Meeting prep',
+        quality: 'Confident handoff'
+      }
+    ];
+    var storyEls = {
+      kicker: storyScreen.querySelector('[data-story-kicker]'),
+      status: storyScreen.querySelector('[data-story-status]'),
+      label: storyScreen.querySelector('[data-story-label]'),
+      title: storyScreen.querySelector('[data-story-title]'),
+      copy: storyScreen.querySelector('[data-story-copy]'),
+      chips: Array.prototype.slice.call(storyScreen.querySelectorAll('[data-story-chip]')),
+      output: storyScreen.querySelector('[data-story-output]'),
+      quality: storyScreen.querySelector('[data-story-quality]'),
+      progress: storyScreen.querySelector('[data-story-progress]')
+    };
+    var activeStory = 0;
+    var swapTimer = null;
+    var finePointer = window.matchMedia('(pointer:fine)').matches;
+
+    function setStory(index, shouldFocus) {
+      if (index < 0) index = storyItems.length - 1;
+      if (index >= storyItems.length) index = 0;
+      if (index === activeStory && !shouldFocus) return;
+      activeStory = index;
+      storyButtons.forEach(function (button, buttonIndex) {
+        var isActive = buttonIndex === index;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      if (shouldFocus) storyButtons[index].focus();
+      storyScreen.classList.add('is-swapping');
+      clearTimeout(swapTimer);
+      swapTimer = setTimeout(function () {
+        var item = storyItems[index];
+        storyScreen.dataset.step = String(index + 1);
+        storyScreen.setAttribute('aria-labelledby', 'story-step-' + index);
+        storyEls.kicker.textContent = item.kicker;
+        storyEls.status.textContent = item.status;
+        storyEls.label.textContent = item.label;
+        storyEls.title.textContent = item.title;
+        storyEls.copy.textContent = item.copy;
+        storyEls.chips.forEach(function (chip, chipIndex) {
+          chip.textContent = item.chips[chipIndex] || '';
+        });
+        storyEls.output.textContent = item.output;
+        storyEls.quality.textContent = item.quality;
+        storyEls.progress.style.width = ((index + 1) / storyItems.length * 100) + '%';
+        storyScreen.classList.remove('is-swapping');
+      }, reduce ? 0 : 120);
+    }
+
+    storyButtons.forEach(function (button, index) {
+      button.addEventListener('click', function () { setStory(index, false); });
+      if (finePointer) {
+        button.addEventListener('mouseenter', function () { setStory(index, false); });
+      }
+      button.addEventListener('keydown', function (event) {
+        if (event.key !== 'ArrowRight' && event.key !== 'ArrowDown' && event.key !== 'ArrowLeft' && event.key !== 'ArrowUp') return;
+        event.preventDefault();
+        var direction = event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1 : -1;
+        setStory(activeStory + direction, true);
+      });
+    });
+  }
 })();
 
 /* live video contact widget */
@@ -67,6 +184,7 @@
   if (!cw) return;
   var bubble = document.getElementById('cwBubble');
   var card = document.getElementById('cwCard');
+  var dismissBtn = document.getElementById('cwDismiss');
   var closeBtn = document.getElementById('cwClose');
   var chatBtn = document.getElementById('cwChat');
   var vids = cw.querySelectorAll('video');
@@ -93,13 +211,20 @@
   } catch (e) {}
 
   /* ── open / close ── */
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      cw.hidden = true;
+    });
+  }
   bubble.addEventListener('click', function () {
     if (cw.dataset.drag === '1') return;
-    card.hidden = false; bubble.style.display = 'none'; reclamp(); startVideos();
+    card.hidden = false; bubble.style.display = 'none'; cw.classList.add('cw--open'); reclamp(); startVideos();
   });
   closeBtn.addEventListener('click', function () {
     if (cw.dataset.drag === '1') return;
-    card.hidden = true; bubble.style.display = ''; reclamp();
+    card.hidden = true; bubble.style.display = ''; cw.classList.remove('cw--open'); reclamp();
   });
   chatBtn.addEventListener('click', function () {
     if (cw.dataset.drag === '1') return;
