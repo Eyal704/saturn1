@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Saturn1 — Live 3D Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='15' r='8' fill='%23c9536e'/%3E%3Cellipse cx='16' cy='15' rx='14' ry='4.4' fill='none' stroke='%23cf9a5b' stroke-width='1.6' transform='rotate(-18 16 15)'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --rose-50:#fdf2f4; --rose-100:#fce7ec; --rose-200:#fad4dc;
+      --rose:#c9536e; --rose-deep:#a83d59; --wine:#7c1f33; --wine-deep:#5e1626;
+      --gold:#cf9a5b; --gold-soft:#e7c79b; --ink:#190f17; --text:#34212b;
+      --ease:cubic-bezier(.22,.61,.36,1);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+      color:var(--text); overflow:hidden;
+      background:radial-gradient(120% 95% at 78% -8%, var(--rose-100) 0%, var(--rose-50) 40%, #fffdfd 74%) fixed;
+    }
+    /* the 3D layer */
+    #scene{position:fixed; inset:0; width:100vw; height:100vh; display:block; z-index:0; touch-action:none; cursor:grab;}
+    #scene:active{cursor:grabbing;}
+    /* film grain to match the brand */
+    .grain{position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.5; mix-blend-mode:multiply;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");}
+    /* readability scrim on the left where the copy sits */
+    .scrim{position:fixed; inset:0; z-index:1; pointer-events:none;
+      background:linear-gradient(100deg, rgba(255,251,252,.82) 0%, rgba(255,251,252,.45) 30%, rgba(255,251,252,0) 56%);}
+
+    .top{position:fixed; top:0; left:0; right:0; z-index:3; display:flex; align-items:center; justify-content:space-between;
+      padding:22px clamp(20px,4vw,52px); pointer-events:none;}
+    .brand{display:flex; align-items:center; gap:10px; pointer-events:auto;}
+    .brand svg{width:30px;height:30px}
+    .brand b{font-family:'Playfair Display',serif; font-weight:600; font-size:1.5rem; color:var(--wine); letter-spacing:.2px;}
+    .brand b sup{color:var(--gold); font-size:.62em; font-weight:600;}
+    .back{pointer-events:auto; text-decoration:none; font-weight:600; font-size:.9rem; color:var(--wine);
+      border:1px solid rgba(124,31,51,.2); background:rgba(255,255,255,.6); backdrop-filter:blur(8px);
+      padding:9px 15px; border-radius:999px; transition:all .25s var(--ease);}
+    .back:hover{background:#fff; transform:translateY(-1px); box-shadow:0 8px 22px -12px rgba(124,31,51,.4);}
+
+    .copy{position:fixed; z-index:3; left:clamp(20px,4vw,56px); top:50%; transform:translateY(-50%);
+      max-width:min(540px,46vw); pointer-events:none;}
+    .eyebrow{display:inline-flex; align-items:center; gap:8px; pointer-events:auto;
+      font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--rose-deep);
+      background:rgba(255,255,255,.55); border:1px solid rgba(201,83,110,.22); padding:7px 14px; border-radius:999px; backdrop-filter:blur(8px);}
+    .eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+    h1{font-family:'Playfair Display',serif; font-weight:600; line-height:1.04; color:var(--wine);
+      font-size:clamp(2.6rem,6vw,4.4rem); margin:18px 0 0; letter-spacing:-.5px;}
+    h1 em{font-style:italic; color:var(--rose);}
+    .sub{margin-top:20px; font-size:clamp(1rem,1.5vw,1.18rem); line-height:1.6; color:var(--text); max-width:34ch;}
+    .pills{margin-top:26px; display:flex; gap:10px; flex-wrap:wrap; pointer-events:auto;}
+    .pill{display:inline-flex; align-items:center; gap:8px; font-size:.86rem; font-weight:600; color:var(--wine);
+      background:rgba(255,255,255,.62); border:1px solid rgba(124,31,51,.16); padding:9px 15px; border-radius:12px; backdrop-filter:blur(8px);}
+    .pill svg{width:16px;height:16px;stroke:var(--rose);fill:none;stroke-width:1.7}
+
+    .footnote{position:fixed; z-index:3; bottom:20px; left:clamp(20px,4vw,56px); right:clamp(20px,4vw,56px);
+      display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+      font-size:.8rem; color:var(--rose-deep); pointer-events:none;}
+    .footnote span{background:rgba(255,255,255,.5); padding:6px 12px; border-radius:999px; backdrop-filter:blur(6px); pointer-events:auto;}
+
+    #fallback{position:fixed; inset:0; z-index:5; display:grid; place-content:center; text-align:center; padding:40px; gap:14px;}
+    #fallback h2{font-family:'Playfair Display',serif; color:var(--wine); font-size:2rem;}
+    #fallback p{color:var(--text); max-width:46ch; line-height:1.6;}
+
+    @media (max-width:760px){
+      .copy{top:auto; bottom:84px; transform:none; max-width:none; right:clamp(20px,4vw,56px);}
+      .scrim{background:linear-gradient(0deg, rgba(255,251,252,.9) 0%, rgba(255,251,252,.35) 40%, rgba(255,251,252,0) 70%);}
+      .footnote{justify-content:center;}
+    }
+  </style>
+</head>
+<body>
+  <canvas id="scene" aria-label="Interactive 3D model of the planet Saturn"></canvas>
+  <div class="scrim"></div>
+  <div class="grain"></div>
+
+  <header class="top">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="15" r="8" fill="#c9536e"/>
+        <ellipse cx="16" cy="15" rx="14" ry="4.4" fill="none" stroke="#cf9a5b" stroke-width="1.7" transform="rotate(-18 16 15)"/>
+      </svg>
+      <b>Saturn<sup>1</sup></b>
+    </a>
+    <a class="back" href="./">← Back to the current site</a>
+  </header>
+
+  <div class="copy">
+    <span class="eyebrow"><span class="d"></span> Live 3D demo · non-destructive preview</span>
+    <h1>Saturn1, in <em>three dimensions.</em></h1>
+    <p class="sub">Same brand — now interactive. Drag to orbit the planet, scroll to zoom. This is a separate page; your live site is untouched.</p>
+    <div class="pills">
+      <span class="pill"><svg viewBox="0 0 24 24"><path d="M12 2v6m0 8v6M2 12h6m8 0h6" stroke-linecap="round"/></svg> Drag to orbit</span>
+      <span class="pill"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg> Scroll to zoom</span>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <span>Real WebGL · Three.js from CDN · zero build step · runs on GitHub Pages</span>
+    <span>This could replace the flat hero on your homepage.</span>
+  </div>
+
+  <div id="fallback" hidden>
+    <h2>3D needs WebGL</h2>
+    <p>Your browser/GPU didn't allow a WebGL context, so the live 3D scene can't render here. On a normal desktop browser it works out of the box.</p>
+    <a class="back" href="./" style="pointer-events:auto;margin:0 auto;">← Back to the current site</a>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    const canvas = document.getElementById('scene');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    } catch (e) {
+      console.error('[saturn-demo] WebGL init failed', e);
+      document.getElementById('fallback').hidden = false;
+      canvas.style.display = 'none';
+    }
+
+    if (renderer) {
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 300);
+      camera.position.set(0, 1.4, 6.8);
+
+      // ── lights ──
+      scene.add(new THREE.AmbientLight(0xffe6d0, 0.55));
+      const key = new THREE.DirectionalLight(0xffd9a8, 1.55); key.position.set(5, 3, 5); scene.add(key);
+      const rim = new THREE.DirectionalLight(0xc9536e, 0.6); rim.position.set(-6, -2, -4); scene.add(rim);
+
+      // ── procedural textures (no external assets) ──
+      function makePlanetTexture() {
+        const c = document.createElement('canvas'); c.width = 1024; c.height = 512;
+        const x = c.getContext('2d');
+        const g = x.createLinearGradient(0, 0, 0, 512);
+        g.addColorStop(0.00, '#f6ddc9');
+        g.addColorStop(0.16, '#e7c79b');
+        g.addColorStop(0.32, '#cf9a5b');
+        g.addColorStop(0.50, '#c9536e');
+        g.addColorStop(0.66, '#a83d59');
+        g.addColorStop(0.83, '#7c1f33');
+        g.addColorStop(1.00, '#5e1626');
+        x.fillStyle = g; x.fillRect(0, 0, 1024, 512);
+        for (let i = 0; i < 70; i++) {
+          const yy = Math.random() * 512;
+          x.globalAlpha = 0.04 + Math.random() * 0.08;
+          x.fillStyle = Math.random() > 0.5 ? '#ffffff' : '#360e1b';
+          x.fillRect(0, yy, 1024, 1 + Math.random() * 3);
+        }
+        x.globalAlpha = 1;
+        const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+        return t;
+      }
+      function makeRingTexture() {
+        const c = document.createElement('canvas'); c.width = 1024; c.height = 12;
+        const x = c.getContext('2d'); x.clearRect(0, 0, 1024, 12);
+        for (let i = 0; i < 1024; i++) {
+          const band = Math.sin(i * 0.085) * 0.5 + 0.5;
+          let a = 0.12 + band * 0.62 * (0.5 + 0.5 * Math.sin(i * 0.0123));
+          const r = 210 + Math.floor(35 * Math.sin(i * 0.05));
+          const gg = 162 + Math.floor(28 * band);
+          const b = 104 + Math.floor(40 * band);
+          x.fillStyle = `rgba(${r},${gg},${b},${a})`;
+          x.fillRect(i, 0, 1, 12);
+        }
+        x.clearRect(632, 0, 34, 12);   // Cassini-style gap
+        x.clearRect(360, 0, 12, 12);
+        const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+        return t;
+      }
+      function makeGlow(col) {
+        const c = document.createElement('canvas'); c.width = c.height = 256;
+        const x = c.getContext('2d');
+        const g = x.createRadialGradient(128, 128, 0, 128, 128, 128);
+        g.addColorStop(0, col); g.addColorStop(1, 'rgba(255,200,170,0)');
+        x.fillStyle = g; x.fillRect(0, 0, 256, 256);
+        return new THREE.CanvasTexture(c);
+      }
+
+      // ── Saturn system (planet + rings + moon + ship) ──
+      const system = new THREE.Group();
+      system.rotation.set(0.42, 0, 0.16);
+      scene.add(system);
+
+      const planet = new THREE.Mesh(
+        new THREE.SphereGeometry(1.5, 72, 72),
+        new THREE.MeshStandardMaterial({ map: makePlanetTexture(), roughness: 0.88, metalness: 0.06 })
+      );
+      system.add(planet);
+
+      const atmo = new THREE.Mesh(
+        new THREE.SphereGeometry(1.63, 48, 48),
+        new THREE.MeshBasicMaterial({ color: 0xffb48a, transparent: true, opacity: 0.13, side: THREE.BackSide, blending: THREE.AdditiveBlending, depthWrite: false })
+      );
+      system.add(atmo);
+
+      const inner = 2.1, outer = 3.6;
+      const ringGeo = new THREE.RingGeometry(inner, outer, 180, 1);
+      const pAttr = ringGeo.attributes.position, uvAttr = ringGeo.attributes.uv, tmp = new THREE.Vector3();
+      for (let i = 0; i < pAttr.count; i++) {
+        tmp.fromBufferAttribute(pAttr, i);
+        uvAttr.setXY(i, (tmp.length() - inner) / (outer - inner), 0.5);
+      }
+      uvAttr.needsUpdate = true;
+      const ring = new THREE.Mesh(
+        ringGeo,
+        new THREE.MeshBasicMaterial({ map: makeRingTexture(), transparent: true, side: THREE.DoubleSide, depthWrite: false })
+      );
+      ring.rotation.x = -Math.PI / 2;
+      system.add(ring);
+
+      const moon = new THREE.Mesh(
+        new THREE.SphereGeometry(0.12, 24, 24),
+        new THREE.MeshStandardMaterial({ color: 0xe7c79b, roughness: 0.7 })
+      );
+      system.add(moon);
+
+      const ship = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: makeGlow('rgba(255,228,196,0.95)'), transparent: true, blending: THREE.AdditiveBlending, depthWrite: false
+      }));
+      ship.scale.set(0.7, 0.7, 1);
+      system.add(ship);
+
+      // ── starfield ──
+      const N = 1800, sp = new Float32Array(N * 3);
+      for (let i = 0; i < N; i++) {
+        const rr = 18 + Math.random() * 44;
+        const th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
+        sp[i * 3] = rr * Math.sin(ph) * Math.cos(th);
+        sp[i * 3 + 1] = rr * Math.sin(ph) * Math.sin(th);
+        sp[i * 3 + 2] = rr * Math.cos(ph);
+      }
+      const starGeo = new THREE.BufferGeometry();
+      starGeo.setAttribute('position', new THREE.BufferAttribute(sp, 3));
+      const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xfff0e6, size: 0.08, sizeAttenuation: true, transparent: true, opacity: 0.9 }));
+      scene.add(stars);
+
+      // ── controls ──
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true; controls.dampingFactor = 0.06; controls.enablePan = false;
+      controls.minDistance = 3.6; controls.maxDistance = 11;
+      controls.autoRotate = !reduce; controls.autoRotateSpeed = 0.55; controls.rotateSpeed = 0.5;
+      controls.target.set(0, 0, 0);
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }, { passive: true });
+
+      let t = 0;
+      function loop() {
+        requestAnimationFrame(loop);
+        if (!reduce) {
+          t += 0.005;
+          planet.rotation.y += 0.0016;
+          stars.rotation.y += 0.0003;
+          const a = t * 0.9; ship.position.set(Math.cos(a) * 3.95, 0, Math.sin(a) * 3.95);
+          const b = t * 0.5 + 2; moon.position.set(Math.cos(b) * 4.7, Math.sin(b) * 0.35, Math.sin(b) * 4.7);
+        }
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      loop();
+      window.__saturnDemoReady = true;
+      console.log('[saturn-demo] ready');
+    }
+  </script>
+</body>
+</html>

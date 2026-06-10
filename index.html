@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=20260610-2" />
+  <link rel="stylesheet" href="styles.css?v=20260610-14" />
 </head>
 <body>
   <!-- film grain overlay -->
@@ -129,8 +129,8 @@
             Saturn1 builds your sales development engine around what you sell.
           </h1>
           <p class="hero__sub">
-            Enter your website. Saturn1 learns what you sell, finds the right prospects,
-            researches each one, and runs outbound that uses the right angle, proof, and case study for every conversation.
+            Saturn1 learns what your solution does, finds and researches the right prospects,
+            and runs outbound built around the right angle, proof, and case study for every conversation.
           </p>
           <div class="hero__demo">
             <div class="hero__video" aria-label="Saturn1 product video">
@@ -150,102 +150,325 @@
       </div>
     </section>
 
-    <!-- ───────────── InteractiveProductStory ───────────── -->
-    <section class="product-story" id="product-story" aria-labelledby="product-story-title" hidden>
-      <div class="product-story__inner">
-        <div class="section__head product-story__head reveal">
-          <span class="eyebrow"><span class="eyebrow__spark">✦</span> Product story</span>
-          <h2 class="section__title" id="product-story-title">
-            From website to pipeline motion.
+    <!-- ───────────── RELEVANCE + LEAD FLOW ───────────── -->
+    <section class="relevance" id="relevance" aria-labelledby="relevance-title">
+      <div class="relevance__inner">
+        <div class="relevance__copy reveal">
+          <span class="eyebrow"><span class="eyebrow__spark">✦</span> Outbound, rebuilt around relevance</span>
+          <h2 class="section__title" id="relevance-title">Outbound, rebuilt around relevance.</h2>
+          <p class="section__lede relevance__lede">
+            Saturn1 helps B2B teams replace generic prospecting with a research-first sales motion —
+            one that identifies the right accounts, sharpens the message, and gives every conversation
+            a stronger reason to happen.
+          </p>
+          <ul class="relevance__points reveal d1">
+            <li>Less spray-and-pray.</li>
+            <li>More precision behind every touch.</li>
+            <li>A scalable outbound system built around the people most likely to care.</li>
+          </ul>
+        </div>
+
+        <div class="lead-flow reveal d2" aria-label="Animated preview of leads flowing into Saturn1">
+          <div class="lead-flow__stage">
+            <header class="lf-autopilot-header">Autopilot</header>
+
+            <!-- funnel mesh — leads flow downward into processor -->
+            <svg class="lead-flow__mesh" viewBox="0 0 720 680" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <defs>
+                <linearGradient id="lfFlowGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#f0a88a" stop-opacity="0.15" />
+                  <stop offset="35%" stop-color="#e8927a" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#c9536e" stop-opacity="0.55" />
+                </linearGradient>
+                <linearGradient id="lfFlowGlow" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#fce7ec" stop-opacity="0" />
+                  <stop offset="50%" stop-color="#f4a88a" stop-opacity="0.7" />
+                  <stop offset="100%" stop-color="#c9536e" stop-opacity="0.3" />
+                </linearGradient>
+                <filter id="lfGlow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="3" result="b" />
+                  <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
+                <clipPath id="lfFaceClip"><rect width="42" height="42" rx="9" /></clipPath>
+                <path id="lfBranchL" d="M 120 108 C 168 190, 280 268, 360 318" />
+                <path id="lfBranchC" d="M 360 100 L 360 318" />
+                <path id="lfBranchR" d="M 600 108 C 552 190, 440 268, 360 318" />
+              </defs>
+              <!-- glow layer -->
+              <use class="lf-mesh lf-mesh--glow" href="#lfBranchL" />
+              <use class="lf-mesh lf-mesh--glow" href="#lfBranchC" />
+              <use class="lf-mesh lf-mesh--glow" href="#lfBranchR" />
+              <!-- main strokes -->
+              <use class="lf-mesh lf-mesh--main" href="#lfBranchL" />
+              <use class="lf-mesh lf-mesh--main" href="#lfBranchC" />
+              <use class="lf-mesh lf-mesh--main" href="#lfBranchR" />
+              <!-- animated pulse -->
+              <use class="lf-mesh lf-mesh--pulse" href="#lfBranchL" />
+              <use class="lf-mesh lf-mesh--pulse lf-mesh--delay1" href="#lfBranchC" />
+              <use class="lf-mesh lf-mesh--pulse lf-mesh--delay2" href="#lfBranchR" />
+              <!-- header anchors -->
+              <circle class="lf-anchor" cx="120" cy="108" r="4" />
+              <circle class="lf-anchor" cx="360" cy="100" r="4" />
+              <circle class="lf-anchor" cx="600" cy="108" r="4" />
+              <!-- traveling signals -->
+              <circle class="lf-dot" r="4" filter="url(#lfGlow)">
+                <animateMotion dur="24s" repeatCount="indefinite"><mpath href="#lfBranchL" /></animateMotion>
+              </circle>
+              <circle class="lf-dot lf-dot--gold" r="3" filter="url(#lfGlow)">
+                <animateMotion dur="24s" begin="8s" repeatCount="indefinite"><mpath href="#lfBranchC" /></animateMotion>
+              </circle>
+              <circle class="lf-dot" r="4" filter="url(#lfGlow)">
+                <animateMotion dur="24s" begin="16s" repeatCount="indefinite"><mpath href="#lfBranchR" /></animateMotion>
+              </circle>
+              <!-- inbound faces — smooth motion along paths (populated by script.js) -->
+              <g id="lfParticles" class="lf-particles"></g>
+            </svg>
+
+            <!-- category headers -->
+            <div class="lead-flow__sources" aria-hidden="true">
+              <div class="lf-cluster lf-cluster--left"><span class="lf-tag">Right Account</span></div>
+              <div class="lf-cluster lf-cluster--center"><span class="lf-tag">Problem fit</span></div>
+              <div class="lf-cluster lf-cluster--right"><span class="lf-tag">Matched your ICP</span></div>
+            </div>
+
+            <!-- Saturn processor -->
+            <div class="lead-flow__processor" aria-hidden="true">
+              <span class="lf-processor-veil"></span>
+              <span class="lf-processor-glow"></span>
+              <svg class="lead-flow__planet" viewBox="0 0 100 100" aria-hidden="true">
+                <defs>
+                  <radialGradient id="lfPlanet" cx="38%" cy="28%" r="75%">
+                    <stop offset="0%" stop-color="#f0a0b4" />
+                    <stop offset="45%" stop-color="#c9536e" />
+                    <stop offset="100%" stop-color="#6b1a30" />
+                  </radialGradient>
+                  <linearGradient id="lfRingPink" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#ffd0de" />
+                    <stop offset="35%" stop-color="#f0809e" />
+                    <stop offset="65%" stop-color="#e86888" />
+                    <stop offset="100%" stop-color="#ffc8d8" />
+                  </linearGradient>
+                  <filter id="lfRingGlow" x="-50%" y="-100%" width="200%" height="300%">
+                    <feGaussianBlur stdDeviation="1.4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <filter id="lfWaveBlur" x="-60%" y="-60%" width="220%" height="220%">
+                    <feGaussianBlur stdDeviation="0.8" />
+                  </filter>
+                </defs>
+                <!-- pink sonar waves -->
+                <ellipse class="lf-wave lf-wave--1" cx="50" cy="50" rx="38" ry="11" />
+                <ellipse class="lf-wave lf-wave--2" cx="50" cy="50" rx="38" ry="11" />
+                <ellipse class="lf-wave lf-wave--3" cx="50" cy="50" rx="38" ry="11" />
+                <!-- back half of ring (behind planet) -->
+                <path class="lf-ring-back" d="M 10 50 A 40 11 0 0 1 90 50" fill="none" stroke="#e888a8" stroke-width="5" stroke-linecap="round" opacity="0.42" />
+                <!-- planet body -->
+                <circle class="lf-planet-body" cx="50" cy="50" r="17" fill="url(#lfPlanet)" />
+                <ellipse cx="44" cy="43" rx="5.5" ry="3.5" fill="#fff" opacity="0.14" />
+                <!-- front half of ring (in front of planet) -->
+                <path class="lf-ring-front" d="M 10 50 A 40 11 0 0 0 90 50" fill="none" stroke="url(#lfRingPink)" stroke-width="6" stroke-linecap="round" filter="url(#lfRingGlow)" />
+                <path class="lf-ring-shine" d="M 14 52 A 36 9 0 0 0 86 52" fill="none" stroke="#fff5f8" stroke-width="2.5" opacity="0.8" />
+              </svg>
+            </div>
+
+            <!-- scrolling lead queue — flows down into funnel -->
+            <div class="lead-flow__stream" aria-hidden="true">
+              <div class="lead-flow__track">
+                <article class="lf-card">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-13.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--linkedin" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>Yael Cohen</strong><span>Head of Growth</span></div>
+                </article>
+                <article class="lf-card">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-14.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--stripe" title="Stripe"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>Omer Shapira</strong><span>VP Sales</span></div>
+                </article>
+                <article class="lf-card">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-15.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--hubspot" title="HubSpot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.164 7.93V5.084a2.198 2.198 0 0 0 1.267-1.978v-.067A2.2 2.2 0 0 0 17.238.845h-.067a2.2 2.2 0 0 0-2.193 2.193v.067a2.196 2.196 0 0 0 1.252 1.978v2.853a6.14 6.14 0 0 0-2.619 1.145l-7.455-5.8a2.715 2.715 0 0 0 .422-1.43A2.7 2.7 0 0 0 5.26 0 2.7 2.7 0 0 0 2.56 2.7a2.7 2.7 0 0 0 1.68 2.496l7.455 5.8a6.127 6.127 0 0 0-.98 3.287 6.14 6.14 0 0 0 .98 3.287l-5.72 5.72a2.715 2.715 0 0 0-1.43-.422A2.7 2.7 0 0 0 2.56 24a2.7 2.7 0 0 0 2.7-2.7 2.715 2.715 0 0 0-.422-1.43l5.72-5.72a6.14 6.14 0 0 0 2.619 1.145v2.853a2.196 2.196 0 0 0-1.252 1.978v.067a2.2 2.2 0 0 0 2.193 2.193h.067a2.2 2.2 0 0 0 2.193-2.193v-.067a2.198 2.198 0 0 0-1.267-1.978v-2.853a6.127 6.127 0 0 0 3.287-.98l4.06 4.06a2.715 2.715 0 0 0 .422-1.43A2.7 2.7 0 0 0 24 21.3a2.7 2.7 0 0 0-2.7-2.7 2.715 2.715 0 0 0-1.43.422l-4.06-4.06a6.14 6.14 0 0 0 .98-3.287 6.127 6.127 0 0 0-.98-3.287l4.06-4.06a2.715 2.715 0 0 0 1.43.422A2.7 2.7 0 0 0 21.44 2.7a2.7 2.7 0 0 0-2.7-2.7 2.715 2.715 0 0 0-1.43.422l-4.06 4.06a6.14 6.14 0 0 0-3.287-.98z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>Sarah Mitchell</strong><span>Customer Success Director</span></div>
+                </article>
+                <article class="lf-card">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-16.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--slack" title="Slack"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.528 2.528 0 0 1-2.52-2.521V2.522A2.528 2.528 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.528 2.528 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.528 2.528 0 0 1-2.52-2.523 2.527 2.527 0 0 1 2.52-2.52h6.313A2.528 2.528 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>James Carter</strong><span>RevOps Lead</span></div>
+                </article>
+                <article class="lf-card">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-17.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--notion" title="Notion"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.98-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.606c.047.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952l1.449.327s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-2.055V2.667c0-.839.374-1.54 1.447-1.632z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>Lukas Weber</strong><span>Product Lead</span></div>
+                </article>
+                <article class="lf-card">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-18.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--openai" title="OpenAI"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.057v5.583a4.504 4.504 0 0 1-4.494 4.489zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.677a.79.79 0 0 0-.407-.667zm2.01-3.023-1.375-.8-4.78-2.758a.795.795 0 0 0-.785 0L6.409 8.88v-2.33a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135-2.02-1.168a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08-4.778 2.758a.795.795 0 0 0-.393.681zm1.097 2.365 2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>Anna Gruber</strong><span>Marketing Director</span></div>
+                </article>
+                <!-- duplicate set for seamless loop -->
+                <article class="lf-card" aria-hidden="true">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-13.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--linkedin"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>Yael Cohen</strong><span>Head of Growth</span></div>
+                </article>
+                <article class="lf-card" aria-hidden="true">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-14.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--stripe"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>Omer Shapira</strong><span>VP Sales</span></div>
+                </article>
+                <article class="lf-card" aria-hidden="true">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-15.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--hubspot"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.164 7.93V5.084a2.198 2.198 0 0 0 1.267-1.978v-.067A2.2 2.2 0 0 0 17.238.845h-.067a2.2 2.2 0 0 0-2.193 2.193v.067a2.196 2.196 0 0 0 1.252 1.978v2.853a6.14 6.14 0 0 0-2.619 1.145l-7.455-5.8a2.715 2.715 0 0 0 .422-1.43A2.7 2.7 0 0 0 5.26 0 2.7 2.7 0 0 0 2.56 2.7a2.7 2.7 0 0 0 1.68 2.496l7.455 5.8a6.127 6.127 0 0 0-.98 3.287 6.14 6.14 0 0 0 .98 3.287l-5.72 5.72a2.715 2.715 0 0 0-1.43-.422A2.7 2.7 0 0 0 2.56 24a2.7 2.7 0 0 0 2.7-2.7 2.715 2.715 0 0 0-.422-1.43l5.72-5.72a6.14 6.14 0 0 0 2.619 1.145v2.853a2.196 2.196 0 0 0-1.252 1.978v.067a2.2 2.2 0 0 0 2.193 2.193h.067a2.2 2.2 0 0 0 2.193-2.193v-.067a2.198 2.198 0 0 0-1.267-1.978v-2.853a6.127 6.127 0 0 0 3.287-.98l4.06 4.06a2.715 2.715 0 0 0 .422-1.43A2.7 2.7 0 0 0 24 21.3a2.7 2.7 0 0 0-2.7-2.7 2.715 2.715 0 0 0-1.43.422l-4.06-4.06a6.14 6.14 0 0 0 .98-3.287 6.127 6.127 0 0 0-.98-3.287l4.06-4.06a2.715 2.715 0 0 0 1.43.422A2.7 2.7 0 0 0 21.44 2.7a2.7 2.7 0 0 0-2.7-2.7 2.715 2.715 0 0 0-1.43.422l-4.06 4.06a6.14 6.14 0 0 0-3.287-.98z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>Sarah Mitchell</strong><span>Customer Success Director</span></div>
+                </article>
+                <article class="lf-card" aria-hidden="true">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-16.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--slack"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.528 2.528 0 0 1-2.52-2.521V2.522A2.528 2.528 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.528 2.528 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.528 2.528 0 0 1-2.52-2.523 2.527 2.527 0 0 1 2.52-2.52h6.313A2.528 2.528 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>James Carter</strong><span>RevOps Lead</span></div>
+                </article>
+                <article class="lf-card" aria-hidden="true">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-17.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--notion"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.98-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.606c.047.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952l1.449.327s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-2.055V2.667c0-.839.374-1.54 1.447-1.632z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>Lukas Weber</strong><span>Product Lead</span></div>
+                </article>
+                <article class="lf-card" aria-hidden="true">
+                  <div class="lf-card__avatar">
+                    <img src="assets/lead-faces/face-18.jpg" alt="" width="48" height="48" loading="lazy" />
+                    <span class="lf-card__logo lf-card__logo--openai"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.057v5.583a4.504 4.504 0 0 1-4.494 4.489zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.677a.79.79 0 0 0-.407-.667zm2.01-3.023-1.375-.8-4.78-2.758a.795.795 0 0 0-.785 0L6.409 8.88v-2.33a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135-2.02-1.168a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08-4.778 2.758a.795.795 0 0 0-.393.681zm1.097 2.365 2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg></span>
+                  </div>
+                  <div class="lf-card__body"><strong>Anna Gruber</strong><span>Marketing Director</span></div>
+                </article>
+              </div>
+            </div>
+
+            <!-- featured lead -->
+            <article class="lead-flow__featured">
+              <div class="lf-card lf-card--featured">
+                <div class="lf-card__avatar">
+                  <img src="assets/lead-faces/face-19.jpg" alt="" width="48" height="48" loading="lazy" />
+                  <span class="lf-card__logo lf-card__logo--linkedin" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+                </div>
+                <div class="lf-card__body">
+                  <strong>Noa Levi</strong>
+                  <span>Head of Partnerships</span>
+                </div>
+                <div class="lf-card__meta">
+                  <span class="lf-intent">High intent</span>
+                  <svg class="lf-arrow" viewBox="0 0 20 20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10M11 6l4 4-4 4"/></svg>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── MOVING FLOW ───────────── -->
+    <section class="flow-story" id="product-story" aria-labelledby="flow-story-title">
+      <div class="flow-story__inner">
+        <div class="section__head flow-story__head reveal">
+          <span class="eyebrow"><span class="eyebrow__spark">✦</span> Pipeline motion</span>
+          <h2 class="section__title" id="flow-story-title">
+            From website to sales conversations.
           </h2>
           <p class="section__lede">
-            Saturn1 turns your public positioning into focused prospecting, research, outreach, and meeting prep.
+            A focused path from positioning to prospects, research, outreach, and meeting prep.
           </p>
         </div>
 
-        <div class="product-story__grid reveal">
-          <div class="product-story__steps" role="tablist" aria-label="Saturn1 product story">
-            <button class="story-step is-active" id="story-step-0" type="button" role="tab" aria-selected="true" aria-controls="story-panel" data-story-step="0">
-              <span class="story-step__num">01</span>
-              <span class="story-step__copy">
-                <strong>Learns your business</strong>
-                <span>Offer, proof, use cases.</span>
-              </span>
-            </button>
-            <button class="story-step" id="story-step-1" type="button" role="tab" aria-selected="false" aria-controls="story-panel" data-story-step="1">
-              <span class="story-step__num">02</span>
-              <span class="story-step__copy">
-                <strong>Finds ICP-fit prospects</strong>
-                <span>Accounts with a reason to care.</span>
-              </span>
-            </button>
-            <button class="story-step" id="story-step-2" type="button" role="tab" aria-selected="false" aria-controls="story-panel" data-story-step="2">
-              <span class="story-step__num">03</span>
-              <span class="story-step__copy">
-                <strong>Researches what matters</strong>
-                <span>Signals, context, timing.</span>
-              </span>
-            </button>
-            <button class="story-step" id="story-step-3" type="button" role="tab" aria-selected="false" aria-controls="story-panel" data-story-step="3">
-              <span class="story-step__num">04</span>
-              <span class="story-step__copy">
-                <strong>Builds the right outreach</strong>
-                <span>Angle, proof, case study.</span>
-              </span>
-            </button>
-            <button class="story-step" id="story-step-4" type="button" role="tab" aria-selected="false" aria-controls="story-panel" data-story-step="4">
-              <span class="story-step__num">05</span>
-              <span class="story-step__copy">
-                <strong>Arms your team for meetings</strong>
-                <span>Openers and call prep.</span>
-              </span>
-            </button>
+        <div class="flow-diagram reveal" aria-label="Saturn1 outbound flow">
+          <div class="flow-diagram__hud" aria-hidden="true">
+            <span><i></i>Live motion</span>
+            <span>Prospect intelligence</span>
+            <span>Outbound system</span>
           </div>
+          <svg class="flow-diagram__svg" viewBox="0 0 1120 260" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="flowStroke" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#f3b6c4" stop-opacity="0.34" />
+                <stop offset="42%" stop-color="#c9536e" stop-opacity="0.82" />
+                <stop offset="74%" stop-color="#7c1f33" stop-opacity="0.56" />
+                <stop offset="100%" stop-color="#fff7f9" stop-opacity="0.40" />
+              </linearGradient>
+              <filter id="flowGlow" x="-20%" y="-80%" width="140%" height="260%">
+                <feGaussianBlur stdDeviation="7" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              <path id="saturnFlowPath" d="M72 130 C180 36 284 214 392 130 S604 46 716 130 S928 218 1048 130" />
+            </defs>
+            <use class="flow-line flow-line--base" href="#saturnFlowPath" />
+            <use class="flow-line flow-line--live" href="#saturnFlowPath" />
+            <circle class="flow-signal flow-signal--one" r="8" filter="url(#flowGlow)">
+              <animateMotion dur="7.5s" repeatCount="indefinite">
+                <mpath href="#saturnFlowPath" />
+              </animateMotion>
+            </circle>
+            <circle class="flow-signal flow-signal--two" r="5" filter="url(#flowGlow)">
+              <animateMotion dur="7.5s" begin="2.5s" repeatCount="indefinite">
+                <mpath href="#saturnFlowPath" />
+              </animateMotion>
+            </circle>
+            <circle class="flow-signal flow-signal--three" r="6" filter="url(#flowGlow)">
+              <animateMotion dur="7.5s" begin="5s" repeatCount="indefinite">
+                <mpath href="#saturnFlowPath" />
+              </animateMotion>
+            </circle>
+          </svg>
 
-          <div class="story-screen" id="story-panel" role="tabpanel" aria-labelledby="story-step-0" aria-live="polite" data-story-screen>
-            <div class="story-screen__chrome" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="story-screen__status">
-              <span data-story-kicker>Step 01</span>
-              <strong data-story-status>Website learned</strong>
-            </div>
-            <div class="story-screen__body">
-              <p class="story-screen__label" data-story-label>Input</p>
-              <h3 data-story-title>Learns your business</h3>
-              <p data-story-copy>
-                Maps your offer, proof, ICP, and strongest use cases from your website.
-              </p>
-
-              <div class="story-chips" aria-label="Current signals">
-                <span data-story-chip>Offer map</span>
-                <span data-story-chip>ICP language</span>
-                <span data-story-chip>Proof library</span>
-              </div>
-
-              <div class="story-output">
-                <div>
-                  <span>Next asset</span>
-                  <strong data-story-output>Positioning brief</strong>
-                </div>
-                <div>
-                  <span>Quality bar</span>
-                  <strong data-story-quality>Clear fit logic</strong>
-                </div>
-              </div>
-            </div>
-            <div class="story-map" aria-hidden="true">
-              <span class="story-map__node story-map__node--a"></span>
-              <span class="story-map__node story-map__node--b"></span>
-              <span class="story-map__node story-map__node--c"></span>
-              <span class="story-map__node story-map__node--d"></span>
-              <svg viewBox="0 0 360 180" preserveAspectRatio="none">
-                <path d="M36 132 C96 42 150 78 184 96 C236 124 266 52 326 42" />
-                <path d="M38 134 C108 130 148 112 188 96 C230 78 282 96 324 44" />
-              </svg>
-            </div>
-            <div class="story-progress" aria-hidden="true"><span data-story-progress></span></div>
-          </div>
+          <ol class="flow-nodes">
+            <li class="flow-node">
+              <span class="flow-node__num">01</span>
+              <strong>Solution learned</strong>
+              <span>Offer, proof, use cases.</span>
+            </li>
+            <li class="flow-node">
+              <span class="flow-node__num">02</span>
+              <strong>Prospects found</strong>
+              <span>Accounts with a reason to care.</span>
+            </li>
+            <li class="flow-node">
+              <span class="flow-node__num">03</span>
+              <strong>Research gathered</strong>
+              <span>Signals, context, timing.</span>
+            </li>
+            <li class="flow-node">
+              <span class="flow-node__num">04</span>
+              <strong>Outbound built</strong>
+              <span>Angle, proof, case study.</span>
+            </li>
+            <li class="flow-node flow-node--final">
+              <span class="flow-node__num">05</span>
+              <strong>Sales development running</strong>
+              <span>Research, outreach, and call prep.</span>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
@@ -261,7 +484,7 @@
           <span>Personalized outreach</span><span class="sep">✦</span>
           <span>Autopilot</span><span class="sep">✦</span>
           <span>Sequenced follow-ups</span><span class="sep">✦</span>
-          <span>LinkedIn openers</span><span class="sep">✦</span>
+          <span>Meeting openers</span><span class="sep">✦</span>
           <span>Personalized call prep</span><span class="sep">✦</span>
           <!-- duplicate for seamless loop -->
           <span>Right prospects</span><span class="sep">✦</span>
@@ -271,7 +494,7 @@
           <span>Personalized outreach</span><span class="sep">✦</span>
           <span>Autopilot</span><span class="sep">✦</span>
           <span>Sequenced follow-ups</span><span class="sep">✦</span>
-          <span>LinkedIn openers</span><span class="sep">✦</span>
+          <span>Meeting openers</span><span class="sep">✦</span>
           <span>Personalized call prep</span><span class="sep">✦</span>
         </div>
       </div>
@@ -330,6 +553,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260610-1"></script>
+  <script src="script.js?v=20260610-10"></script>
 </body>
 </html>
