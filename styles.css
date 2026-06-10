@@ -737,11 +737,11 @@ main, .nav, .footer { position: relative; z-index: 2; }
 .cw { position: fixed; right: 22px; bottom: 22px; z-index: 70; touch-action: none; }
 .cw__dismiss {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -7px;
+  right: -7px;
   z-index: 3;
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(124,31,51,0.14);
@@ -752,10 +752,10 @@ main, .nav, .footer { position: relative; z-index: 2; }
   backdrop-filter: blur(8px);
   cursor: pointer;
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1;
-  padding-bottom: 1px;
+  padding-bottom: 0;
   touch-action: manipulation;
   transition: transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
 }
