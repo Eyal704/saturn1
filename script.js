@@ -244,4 +244,93 @@
   window.addEventListener('resize', reclamp);
 
   setTimeout(startVideos, 1400);
+
+  /* ── Experience Saturn1 modal (Start today) ── */
+  (function () {
+    var ENDPOINT = 'https://reach.meeting-scheduled.com/api/experience/agent';
+    var xp = document.getElementById('xp');
+    if (!xp) return;
+    var form = document.getElementById('xpForm');
+    var emailEl = document.getElementById('xpEmail');
+    var linkedinEl = document.getElementById('xpLinkedin');
+    var errEl = document.getElementById('xpErr');
+    var submitBtn = document.getElementById('xpSubmit');
+    var doneSub = document.getElementById('xpDoneSub');
+    var stageForm = xp.querySelector('[data-stage="form"]');
+    var stageDone = xp.querySelector('[data-stage="done"]');
+    var lastFocus = null;
+
+    function showErr(msg) { errEl.textContent = msg; errEl.hidden = false; }
+    function clearErr() { errEl.hidden = true; errEl.textContent = ''; }
+
+    function openModal() {
+      lastFocus = document.activeElement;
+      // reset to form state each open
+      stageDone.hidden = true; stageForm.hidden = false;
+      xp.classList.remove('is-loading'); clearErr();
+      xp.classList.add('is-open'); xp.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function () { emailEl && emailEl.focus(); }, 60);
+    }
+    function closeModal() {
+      xp.classList.remove('is-open'); xp.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    // Open from any [data-experience-open] (the hero "Start today")
+    Array.prototype.forEach.call(document.querySelectorAll('[data-experience-open]'), function (el) {
+      el.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+    });
+    // Close on backdrop / X / Esc
+    Array.prototype.forEach.call(xp.querySelectorAll('[data-experience-close]'), function (el) {
+      el.addEventListener('click', closeModal);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && xp.classList.contains('is-open')) closeModal();
+    });
+
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearErr();
+      var email = (emailEl.value || '').trim().toLowerCase();
+      var linkedin = (linkedinEl.value || '').trim();
+      if (!EMAIL_RE.test(email)) { showErr('Please enter a valid email address.'); emailEl.focus(); return; }
+
+      xp.classList.add('is-loading'); submitBtn.disabled = true;
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, linkedin: linkedin, website: (form.website && form.website.value) || '' })
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            return { status: res.status, data: data };
+          });
+        })
+        .then(function (r) {
+          xp.classList.remove('is-loading'); submitBtn.disabled = false;
+          if (r.status === 200 && r.data && r.data.ok) {
+            // success — flip to "crafted by AI" state
+            if (doneSub) {
+              doneSub.textContent = r.data.deduped
+                ? 'We already sent one to ' + email + ' — check your mailbox.'
+                : 'Please check ' + email + ' — it lands in under a minute.';
+            }
+            stageForm.hidden = true; stageDone.hidden = false;
+          } else if (r.data && r.data.message) {
+            showErr(r.data.message);
+          } else {
+            showErr('Something went wrong. Please try again in a moment.');
+          }
+        })
+        .catch(function () {
+          xp.classList.remove('is-loading'); submitBtn.disabled = false;
+          showErr('Network error — please try again.');
+        });
+    });
+  })();
 })();
