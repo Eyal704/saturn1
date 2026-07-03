@@ -298,6 +298,7 @@
       var email = (emailEl.value || '').trim().toLowerCase();
       var linkedin = (linkedinEl.value || '').trim();
       if (!EMAIL_RE.test(email)) { showErr('Please enter a valid email address.'); emailEl.focus(); return; }
+      if (!/linkedin\.com\/[a-z0-9]/i.test(linkedin)) { showErr('Please add your LinkedIn profile URL.'); linkedinEl.focus(); return; }
 
       xp.classList.add('is-loading'); submitBtn.disabled = true;
 
