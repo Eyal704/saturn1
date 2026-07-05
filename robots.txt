@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /oldpage/
+Disallow: /oldpage1/
+Disallow: /handoff/
+
+Sitemap: https://saturn1.ai/sitemap.xml
