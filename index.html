@@ -554,7 +554,12 @@
   <!-- Crisp chat (same inbox as meeting-scheduled); launcher hidden, opened from the widget's Chat button -->
   <script>window.$crisp=[];window.CRISP_WEBSITE_ID="345c5509-5794-4f9b-9fca-729075f9eea3";(function(){var d=document,c=d.createElement("script");c.src="https://client.crisp.chat/l.js";c.async=1;d.getElementsByTagName("head")[0].appendChild(c);})();window.$crisp.push(["do","chat:hide"]);window.$crisp.push(["on","chat:closed",function(){window.$crisp.push(["do","chat:hide"]);}]);</script>
 
-  <!-- ───────── live video contact widget ───────── -->
+  <!-- ───────── live video contact widget (temporarily hidden) ─────────
+       To re-enable, delete the "<!--" line above the <div id="cw"> and the
+       "-->" line below its closing </div>. The widget JS in script.js no-ops
+       when #cw is absent, so nothing else needs to change.
+  -->
+  <!--
   <div class="cw" id="cw">
     <button class="cw__dismiss" id="cwDismiss" type="button" aria-label="Hide chat widget">&times;</button>
     <button class="cw__bubble" id="cwBubble" type="button" aria-label="Talk to Saturn1">
@@ -583,6 +588,8 @@
       </div>
     </div>
   </div>
+  -->
+
 
   <!-- ───────────── Experience Saturn1 modal (Start today) ───────────── -->
   <div class="xp" id="xp" aria-hidden="true">
