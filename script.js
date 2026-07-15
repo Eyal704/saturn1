@@ -244,9 +244,13 @@
   window.addEventListener('resize', reclamp);
 
   setTimeout(startVideos, 1400);
+})();
 
-  /* ── Experience Saturn1 modal (Start today) ── */
-  (function () {
+/* ── Experience Saturn1 modal (Start today) — runs independently of the (now
+   hidden) #cw video widget above. Must NOT be nested inside the widget IIFE,
+   which early-returns `if (!cw) return;` when #cw is absent and would otherwise
+   skip this wiring, making the CTA fall through to its cal.com booking href. ── */
+(function () {
     var ENDPOINT = 'https://reach.meeting-scheduled.com/api/experience/agent';
     var xp = document.getElementById('xp');
     if (!xp) return;
@@ -333,5 +337,4 @@
           showErr('Network error — please try again.');
         });
     });
-  })();
 })();
